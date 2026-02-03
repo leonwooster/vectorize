@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sample SVG with multiple colors for testing -->
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="#f0f0f0"/>
+  
+  <!-- Sun -->
+  <circle cx="100" cy="100" r="50" fill="#FFD700"/>
+  <circle cx="100" cy="100" r="40" fill="#FFA500"/>
+  
+  <!-- Mountains -->
+  <polygon points="0,300 150,150 300,300" fill="#8B4513"/>
+  <polygon points="150,300 250,180 400,300" fill="#A0522D"/>
+  <polygon points="150,150 200,100 250,180" fill="#FFFFFF"/>
+  
+  <!-- Trees -->
+  <rect x="50" y="250" width="20" height="50" fill="#654321"/>
+  <polygon points="60,250 40,220 80,220" fill="#228B22"/>
+  <polygon points="60,230 45,210 75,210" fill="#32CD32"/>
+  
+  <rect x="320" y="260" width="20" height="40" fill="#654321"/>
+  <polygon points="330,260 310,235 350,235" fill="#228B22"/>
+  <polygon points="330,245 318,228 342,228" fill="#32CD32"/>
+  
+  <!-- House -->
+  <rect x="150" y="240" width="80" height="60" fill="#CD853F"/>
+  <polygon points="150,240 190,200 230,240" fill="#8B0000"/>
+  <rect x="170" y="260" width="20" height="40" fill="#4169E1"/>
+  <rect x="200" y="250" width="15" height="15" fill="#87CEEB"/>
+  
+  <!-- Ground -->
+  <rect y="300" width="400" height="100" fill="#90EE90"/>
+  <rect y="320" width="400" height="80" fill="#7CCD7C"/>
+  
+  <!-- Flowers -->
+  <circle cx="280" cy="310" r="5" fill="#FF69B4"/>
+  <circle cx="290" cy="315" r="5" fill="#FF1493"/>
+  <circle cx="270" cy="318" r="5" fill="#FF69B4"/>
+  
+  <circle cx="120" cy="325" r="5" fill="#FF69B4"/>
+  <circle cx="130" cy="320" r="5" fill="#FF1493"/>
+  <circle cx="110" cy="322" r="5" fill="#FF69B4"/>
+</svg>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/all_8b4fc9a7f92adcd8abfa486efb67fd21.css" type="text/css">
+<script type="text/javascript">
+var __jqdeferred=[];function $(a){__jqdeferred.push(a);}
+</script>
+
+<script type="text/javascript">
+var Globals = {"isDev":false};
+</script>
+<script crossorigin="anonymous" defer src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/all_9b3f43ae83881f0f537f5494368e614a.js" type="text/javascript"></script>
+<script crossorigin="anonymous" defer src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/gs_d4467f4bc9b9a1fc75ce19f3ed03989c.js" type="text/javascript"></script>
+<script crossorigin="anonymous" defer src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/javascript/d3.v7.min_3ccc02538abdd47b4e1163ec710b77d1.js" type="text/javascript"></script>
+<script crossorigin="anonymous" defer src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/m/Main.min_0a769bca6fc7860663dde27126df0858.js" type="text/javascript"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Vectorizer.AI">
+<meta name="theme-color" content="#fff">
+<link sizes="180x180" rel="apple-touch-icon" href="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/m/favicons/vectorizer/apple-touch-icon-180_24191c44d0762231bf900717b6ed52ca.png">
+<link sizes="32x32" rel="icon" href="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/m/favicons/vectorizer/favicon-32_d0979f37a631fc6c0a13bb360c56a4ea.png" type="image/png">
+<link sizes="any" rel="icon" href="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/logos/vectorizer-ai-logo_1c2b7a3ae82c1def79ab4c0e9cc83bcc.svg" type="image/svg+xml">
+<link rel="manifest" href="data:application/manifest+json,%7B%22id%22%3A%22vectorizer-en%22%2C%22name%22%3A%22Vectorizer.AI%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fd1j8j7mb8gx2ao.cloudfront.net%2Fp%2Fassets%2Fm%2Ffavicons%2Fvectorizer%2Ffavicon-192_00ae8158a356627a73a25bb19962040f.png%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22https%3A%2F%2Fd1j8j7mb8gx2ao.cloudfront.net%2Fp%2Fassets%2Fm%2Ffavicons%2Fvectorizer%2Ffavicon-512_c2e5baa4cff4753c6ec753a87e817486.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22https%3A%2F%2Fd1j8j7mb8gx2ao.cloudfront.net%2Fp%2Fassets%2Fm%2Ffavicons%2Fvectorizer%2Ffavicon-maskable-512_2848d23fdf0650ac3eb70430542894e6.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%2C%22purpose%22%3A%22maskable%22%7D%5D%2C%22start_url%22%3A%22https%3A%2F%2Fvectorizer.ai%2F%22%2C%22background_color%22%3A%22%23fff%22%2C%22description%22%3A%22Pixel%20to%20Vector%20Tracer.%20Powerful%20deep%20learning%20based%20raster%20to%20vector%20conversion%20-%20just%20upload%20your%20JPEG%2FPNG%20image%20and%20get%20it%20vectorized%20to%20SVG%2FEPS%2FPDF%2FDXF%20right%20away.%20Great%20for%20digital%20graphics%20and%20all%20forms%20of%20printing%2C%20embroidery%2C%20signage%20and%20more.%20%22%2C%22display%22%3A%22minimal-ui%22%2C%22lang%22%3A%22en%22%2C%22theme_color%22%3A%22%23fff%22%7D">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7FTXH91VS" type="text/javascript"></script>
+<script type="text/javascript">
+window.dataLayer = window.dataLayer || [];
+function ga() {}
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date()); gtag('set','page_location',"\/images\/edit \/images\/edit"); gtag('config','G-Q7FTXH91VS',{'anonymize_ip':true});
+</script>
+<script type="text/javascript">
+window.onerror=function(m,s,l,c,e){var n=encodeURIComponent;new Image().src='https://askgeo.com/jserrors/log?w=vectorizer.ai&u=&p=https%3A%2F%2Fvectorizer.ai%2Fimages%2F1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330%2Fedit&m='+n(m)+'&s='+n(s)+'&l='+n(l)+'&c='+n(c)+'&e='+n(e)+'&ua='+n(navigator.userAgent);};
+</script>
+
+<script type="text/javascript">
+var GlobalsEx = {"LocaleParameter":"lc=en-US"};var I18nPhrases = {"Dropped a non-file input":"Dropped a non-file input","Please try the latest version of one of these browsers instead: <b>{0}, {1}, {2}, {3}<\/b>.":"Please try the latest version of one of these browsers instead: <b>{0}, {1}, {2}, {3}<\/b>.","Picked a non-file input":"Picked a non-file input","Please try the latest version of one of these browsers instead: <b>{0}, {1}, {2}<\/b>.":"Please try the latest version of one of these browsers instead: <b>{0}, {1}, {2}<\/b>.","Palette Preview":"Palette Preview","Request aborted by the server.":"Request aborted by the server.","Failed to fetch the palette preview, you may need to re-generate your result.":"Failed to fetch the palette preview, you may need to re-generate your result.","Failed to send message to worker.":"Failed to send message to worker.","Unable to connect to the worker. Is your firewall or proxy blocking WebSockets?":"Unable to connect to the worker. Is your firewall or proxy blocking WebSockets?","Terribly sorry, but your browser appears to be missing key feature(s) required to use this website:":"Terribly sorry, but your browser appears to be missing key feature(s) required to use this website:","Pasted something that wasn't an image or URL?":"Pasted something that wasn't an image or URL?","Unsupported Browser":"Unsupported Browser","Error":"Error","Unexpected disconnection from the vectorization server.":"Unexpected disconnection from the vectorization server.","Failed to read image file with name: \"{0}\", and type: \"{1}\".":"Failed to read image file with name: \"{0}\", and type: \"{1}\".","Keyboard: Left & Right":"Keyboard: Left & Right","Unexpected worker disconnection.":"Unexpected worker disconnection.","Failed to fetch \"{0}\"":"Failed to fetch \"{0}\"","Retrying now...":"Retrying now...","Vectorized Result":"Vectorized Result","Failed to upload the image: {0}":"Failed to upload the image: {0}","Connect to worker":"Connect to worker","Terribly sorry, but that file is too large to process. Please try another.":"Terribly sorry, but that file is too large to process. Please try another.","Thank you for your submission!":"Thank you for your submission!","Please verify your network connection.":"Please verify your network connection.","Failed to connect to the server.":"Failed to connect to the server.","Retrying in {0} {0,plural,one{second}other{seconds}}...":"Retrying in {0} {0,plural,one{second}other{seconds}}...","Task":"Task","Original Image":"Original Image","Vectorizer.AI Result":"Vectorizer.AI Result","Pasted a non-file input":"Pasted a non-file input"};
+</script>
+<meta property="og:image" content="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/images/open-graph_7edfc602c1a14fb37dcd46e3fa5503f1.png">
+<meta property="twitter:card" content="summary_large_image">
+<title>profile.jpg - Vectorizer.AI</title>
+<link hreflang="en" rel="alternate" href="https://vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="de" rel="alternate" href="https://de.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="es" rel="alternate" href="https://es.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="fr" rel="alternate" href="https://fr.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="hi" rel="alternate" href="https://hi.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="id" rel="alternate" href="https://id.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="it" rel="alternate" href="https://it.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="ja" rel="alternate" href="https://ja.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="ko" rel="alternate" href="https://ko.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="pl" rel="alternate" href="https://pl.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="pt" rel="alternate" href="https://pt.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="ru" rel="alternate" href="https://ru.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="th" rel="alternate" href="https://th.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="tr" rel="alternate" href="https://tr.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<link hreflang="vi" rel="alternate" href="https://vi.vectorizer.ai/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/edit">
+<script type="text/javascript">
+var GlobalsShared = {"locale":"en-US","localeQueryParameter":"lc"};
+</script>
+<meta name="robots" content="noindex, nofollow, noimageindex, noarchive, nosnippet">
+<!-- vk-fd549d5dd7b77f53f5385cf27a200b518085eeac-d047c41d65eb105eb82fbc4ed085e9ff1236cf9d-9f7e74f1c5ea1239604f95994f35cd7f -->
+</head>
+
+<body id="main">
+<div class="top-section hidden-print">
+<nav id="TopOfPage" class="navbar navbar-default navbar-static-top navbar_container">
+<div class="container">
+<div class="navbar-header">
+<button data-target="#MainNavbar" data-toggle="collapse" class="navbar-toggle">
+<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+</button>
+<a href="/" class="navbar-brand">
+<div class="svg-icon">
+<img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20512%20512%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%2250%22%20ry%3D%2250%22%20fill%3D%22%233659ff%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M322.5%2089h2.5c9%200%2017.5%201.9%2025.2%205.6%205.2%202.9%209.6%206.5%2013.3%2010.8%206.1%207.5%2010.5%2016.4%2013%2026.7%202.3%209%203.4%2019%203.5%2029.5.1%207%200%2013.9-.3%2020.6%200%20.2.4%200%201.3-.4%205.2-2.6%2010.2-5.5%2015-8.7%204.6-2%209-2%2012.7-.2%202%20.8%203%203%203%207%200%205-.9%209.4-2.6%2013.5-2.4%206-6.3%2011.5-11.8%2016.3-5%204.4-11%207.9-17.8%2010.5-.8.3-1.3.8-1.3%201.4l-2.4%2024.6c-2%2018.4-5%2036-9.3%2053-4.7%2016-10.5%2031.3-17.4%2046-6.3%2013.6-14.5%2026-24.8%2037-8.6%209-18%2016.5-28.4%2022.4-12.6%207.2-26.2%2012.2-40.7%2015-14.4%203-29.3%204-44.5%203.3-15.2-.6-29.3-4.3-42.4-11-7-4-13.2-8.8-18.3-14.5-7.9-9.7-12.8-21-14.9-33.6-1-5.6-1.6-11-1.7-16-.5-5-.2-10.4%201-16%202.8-14.6%206.3-29.5%2010.4-44.8l15.3-61c2.3-9.7%204.3-18.6%205.8-27%202.6-13%203.4-25.4%202.3-37-.4-7.3-2.5-13.8-6.3-19.4-2.9-3.2-6.3-5-10.2-5-4.7-.2-8.8%201-12.5%203.8l-18.8%2013.5c-3.6%202.6-7.4%204-11.4%204.3-2.9.2-5-.4-6.4-1.8-1.3-1.3-2-3.4-2.2-6.3-.7-11.8%202.4-22.2%209.3-31.2%204-5%209-9.5%2015.1-13.4%208.2-5.6%2017.2-9.6%2027.1-12%208.3-2%2017.3-2.6%2027-2.2%209.7.7%2018.3%203.6%2026%208.8%205.4%204%2010%209%2013.5%2014.8%208.7%2013.6%2012.6%2028.9%2011.8%2045.7-.3%2016.2-2.5%2032-6.5%2047.8l-15.2%2065c-2.9%2012.7-5.2%2024.8-7%2036.2-1.4%2011-1.6%2022-.8%2033.3.8%207%204.1%2012.7%209.8%2017.2%203.2%202.4%207%204%2011.2%205%203.8.8%208%201.3%2012.8%201.4%2015-.2%2028.5-4.6%2040.7-13.2%206-4.2%2011.6-9%2016.8-14.4%208-8.6%2014.5-18%2020-28.4%208.6-17%2015-35%2019-53.6%202.2-9.4%204.1-19.8%206-31.3-14.6-.7-28-4.4-40.5-11.1-5.2-3.1-10-7-14.5-11.8-5-5.5-9-11.4-11.8-17.8-4.4-10.2-6.8-21-7-32.7-.5-8.8.5-17.2%203-25.2%203.5-10.1%209.5-18.7%2018-26%206.1-5%2013.2-8.5%2021.2-10.6%205.5-1.4%2011.2-2.2%2017-2.3zm5.4%2038.5c-2.6%200-4.6%201-5.9%203.2-.5.8-.8%201.6-1.2%202.5l-.8%202.6-.4%202.8v3c0%202.2.1%204.2.3%206s.5%203.8%201%205.5l.6%203c.3%201%20.5%202%201%203%20.2%201%20.6%201.9%201%202.8l1.2%202.7%201.5%202.6c.5.9%201.1%201.6%201.7%202.4l2%202.3%202.2%202.2c1.4%201.4%203%202.6%204.4%203.7s3%202%204.6%202.9c.4-8.4.7-16.8.8-25.2v-5c0-1.6-.3-3.2-.5-4.7l-.7-4.5-1-4.3c-.2-.8-.5-1.6-1-2.4l-1.6-2.7c-1.4-2.1-3.3-3.5-5.5-4.2l-2.4-.4H328z%22%2F%3E%0D%0A%3C%2Fsvg%3E" importance="high" alt="Vectorizer.AI Logo" width="26" height="26">
+</div>
+<span class="logo_text">Vectorizer.AI</span>
+</a>
+</div>
+<div id="MainNavbar" class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li style="padding-left: 40px;" class="hidden-xs hidden-sm">
+<span>
+&nbsp;
+</span>
+</li>
+
+<li>
+<a href="/api" class>API</a>
+</li>
+
+<li>
+<a href="/pricing" class>Pricing</a>
+</li>
+
+<li>
+<a href="/support" class>Support</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li class="dropdown dropdown_auto">
+<a data-toggle="dropdown" style="text-decoration: none; height: 50px;" href="#" class="dropdown-toggle"><span class="speech_bubble"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2029.5%2025.66%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%20%3Cpath%20d%3D%22M21.85%200H7.64A7.64%207.64%200%200%200%200%207.64v7.06a7.65%207.65%200%200%200%207.64%207.65h5.48a1.65%201.65%200%200%201%201.42%202.51.52.52%200%200%200%20.7.73%2058.43%2058.43%200%200%201%206.61-3.24c4-1.43%207.65-3.43%207.65-7.65V7.64A7.65%207.65%200%200%200%2021.85%200z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%20%20%3Cpath%20d%3D%22M16.77%204.17h-.07a7.21%207.21%200%200%200-3.91%200h-.07a7.2%207.2%200%201%200%204%200zm3.05%2010.59a11.85%2011.85%200%200%200-1.42-.48%2013.59%2013.59%200%200%200%20.38-2.77H21a6.14%206.14%200%200%201-1.18%203.25zm-4.62%202.57v-2.65a14%2014%200%200%201%202.06.23%2011.33%2011.33%200%200%201-1%202.24%206.76%206.76%200%200%201-1.06.18zm-2-.18a13%2013%200%200%201-.95-2.24%2014.25%2014.25%200%200%201%202.07-.23v2.65a6.88%206.88%200%200%201-1.14-.18zm-4.7-5.64h2.24a13.59%2013.59%200%200%200%20.38%202.77%2012.64%2012.64%200%200%200-1.43.48%206.32%206.32%200%200%201-1.21-3.25zm1.17-4.14a12.64%2012.64%200%200%200%201.43.48%2013.59%2013.59%200%200%200-.38%202.77H8.48a6.32%206.32%200%200%201%201.19-3.25zM14.3%204.8v2.65a14.25%2014.25%200%200%201-2.07-.23%2012%2012%200%200%201%201-2.24%205.84%205.84%200%200%201%201.07-.18zm2%20.18a11.33%2011.33%200%200%201%201%202.24%2014%2014%200%200%201-2.06.23V4.8a5.84%205.84%200%200%201%201.07.2zm-1.1%203.37a13.86%2013.86%200%200%200%202.32-.27%2012.72%2012.72%200%200%201%20.34%202.54H15.2zm-.9%200v2.27h-2.67A12%2012%200%200%201%2012%208.08a13.62%2013.62%200%200%200%202.3.27zm-2.67%203.16h2.67v2.27A14.84%2014.84%200%200%200%2012%2014a11.87%2011.87%200%200%201-.37-2.49zm3.57%202.27v-2.27h2.66a12.72%2012.72%200%200%201-.34%202.54%2013.86%2013.86%200%200%200-2.32-.27zm3.58-3.16a13.59%2013.59%200%200%200-.38-2.77%2011.85%2011.85%200%200%200%201.42-.48A6.14%206.14%200%200%201%2021%2010.62zm.43-4c-.35.13-.7.25-1.05.35a13.64%2013.64%200%200%200-.6-1.54%206.25%206.25%200%200%201%201.65%201.21zm-7.27-1.17a13.64%2013.64%200%200%200-.6%201.55c-.36-.1-.71-.22-1.06-.35a6.37%206.37%200%200%201%201.66-1.2zm-1.66%2010c.35-.13.7-.25%201.06-.35a15.8%2015.8%200%200%200%20.59%201.54%206.49%206.49%200%200%201-1.65-1.15zm7.28%201.19a13.64%2013.64%200%200%200%20.6-1.54c.35.1.7.22%201.05.35a6.49%206.49%200%200%201-1.65%201.23z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="high" alt="Language Selection Icon"></span><span>&nbsp;&nbsp;English&nbsp;</span><span class="caret"></span></a><div class="language_suggestion"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20id%3D%22flag-icon-css-my%22%20viewBox%3D%220%200%20640%20480%22%3E%0D%0A%20%20%3Cpath%20fill%3D%22%23cc0001%22%20d%3D%22M0%200h640v480H0z%22%2F%3E%0D%0A%20%20%3Cpath%20id%3D%22a%22%20fill%3D%22%23fff%22%20d%3D%22M0%20445.8h640V480H0z%22%2F%3E%0D%0A%20%20%3Cuse%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate%280%20-68.6%29%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0D%0A%20%20%3Cuse%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate%280%20-137.2%29%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0D%0A%20%20%3Cuse%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate%280%20-205.8%29%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0D%0A%20%20%3Cuse%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate%280%20-274.3%29%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0D%0A%20%20%3Cuse%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate%280%20-343%29%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0D%0A%20%20%3Cuse%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate%280%20-411.5%29%22%20xlink%3Ahref%3D%22%23a%22%2F%3E%0D%0A%20%20%3Cpath%20fill%3D%22%23010066%22%20d%3D%22M0%200h372.6v274.3H0z%22%2F%3E%0D%0A%20%20%3Cg%20fill%3D%22%23fc0%22%3E%0D%0A%20%20%20%20%3Cpath%20d%3D%22M149.7%2048.5c-49%200-88.9%2039.7-88.9%2088.6a88.8%2088.8%200%200089%2088.6%2088.7%2088.7%200%200048-14%2078.9%2078.9%200%2001-25.8%204.2%2078.7%2078.7%200%2001-78.8-78.5%2078.7%2078.7%200%2001106.2-73.7%2088.7%2088.7%200%2000-49.7-15.2z%22%2F%3E%0D%0A%20%20%20%20%3Cpath%20d%3D%22M297.1%20183.2l-37.4-19.5%2011%2040-25-33.5-7.8%2040.7-7.7-40.7-25.1%2033.4%2011.2-40-37.6%2019.5%2028-31.3-42.5%201.6%2039-16.3-39-16.5%2042.5%201.7L178.9%2091l37.4%2019.5-11-40%2025%2033.5%207.8-40.7%207.7%2040.7%2025.1-33.3-11.2%2039.9%2037.6-19.4-28%2031.2%2042.5-1.6-39%2016.4%2039%2016.5-42.5-1.8z%22%2F%3E%0D%0A%20%20%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" alt="Malaysia" title="Malaysia" loading="lazy" class="language_suggestion_flag" decoding="async"><a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=id-MY" class="language_suggestion_item">Indonesia</a><a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=en-US" class="language_suggestion_dismiss"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%209.83%209.83%22%3E%3Cpolygon%20points%3D%229.83%200.71%209.12%200%204.92%204.21%200.71%200%200%200.71%204.21%204.92%200%209.12%200.71%209.83%204.92%205.62%209.12%209.83%209.83%209.12%205.62%204.92%209.83%200.71%22%2F%3E%3C%2Fsvg%3E" importance="low" alt="English" loading="lazy" decoding="async"></a></div>
+<ul class="dropdown-menu dropdown-menu-right modern_menu">
+<li class="active">
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=en-US">
+English
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=de-DE">
+Deutsch (German)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=es-ES">
+Español (Spanish)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=fr-FR">
+Français (French)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=hi-IN">
+हिन्दी (Hindi)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=id-ID">
+Indonesia (Indonesian)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=it-IT">
+Italiano (Italian)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=ja-JP">
+日本語 (Japanese)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=ko-KR">
+한국어 (Korean)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=pl-PL">
+Polski (Polish)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=pt-BR">
+Português (Portuguese)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=ru-RU">
+Русский (Russian)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=th-TH">
+ไทย (Thai)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=tr-TR">
+Türkçe (Turkish)
+</a>
+</li>
+<li>
+<a onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; f.target = this.target; f.submit();return false;" href="/setLocale?locale=vi-VN">
+Tiếng Việt (Vietnamese)
+</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://cedarlakeventures.com/signon/v0/we54b154ba3adfa5e/single?lc=en-US&amp;loginPath=%2Flogin_callback%3Fredir%3D%252Fimages%252F1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330%252Fedit" class="Signon-trigger" data-url="https://cedarlakeventures.com/signon/v0/we54b154ba3adfa5e/single?lc=en-US&amp;loginPath=%2Flogin_callback%3Fredir%3D%252Fimages%252F1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330%252Fedit&amp;noChrome=1">Create Account</a>
+</li>
+<li>
+<a href="https://cedarlakeventures.com/signon/v0/we54b154ba3adfa5e/single?lc=en-US&amp;loginPath=%2Flogin_callback%3Fredir%3D%252Fimages%252F1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330%252Fedit&amp;email=" class="Signon-trigger" data-url="https://cedarlakeventures.com/signon/v0/we54b154ba3adfa5e/single?lc=en-US&amp;loginPath=%2Flogin_callback%3Fredir%3D%252Fimages%252F1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330%252Fedit&amp;email=&amp;noChrome=1">Log In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container">
+</div>
+</div>
+<div class="container">
+
+<div class="row">
+<div class="col-md-12">
+<div style="display: none;" id="App-ModernizrAlert" class="alert alert-danger">
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="ShowPage-topBox">
+<div class="ShowPage-header">
+<h3 style="line-break: anywhere;">
+Loading... <small>profile.jpg</small>
+</h3>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+
+window.ResumeImage = {"token":"1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330","originalFilename":"profile.jpg","originalUrl":"/images/1770101254640-73132a3b0590c5d4-fbd078c7dd268a16ec2c3f7bb6f38924aba69d8fbf154dea9ba3877ea6c5c330/original","isFree":false}
+</script>
+<div style="display: none;">
+
+<div id="app-starter-drop-zone">
+<div class="row hidden-xs">
+<div class="FileInput-click_to_upload app_starter c col-lg-12"><div class="drop_target"><div class="drop_target_text"><div class="img_files_container img_files_show_all"><div class="img_file"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2081.83%20110.59%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3CradialGradient%20id%3D%22paper-shadow-gradient%22%20cx%3D%2255.58%22%20cy%3D%2229.83%22%20r%3D%2235%22%20fx%3D%2280.58%22%20fy%3D%225.83%22%20gradientTransform%3D%22matrix%28.80002%20-.00067782%20.00076905%20.90769%2011.092%202.7912%29%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.2%22%20offset%3D%220%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.12%22%20offset%3D%22.19%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.06%22%20offset%3D%22.42%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.01%22%20offset%3D%22.68%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%220%22%20offset%3D%221%22%2F%3E%0D%0A%20%20%3C%2FradialGradient%3E%0D%0A%20%20%3ClinearGradient%20id%3D%22corner-shadow-gradient%22%20x1%3D%2261.737%22%20x2%3D%2273.471%22%20y1%3D%2224.742%22%20y2%3D%2212.467%22%20gradientTransform%3D%22scale%28.93808%201.066%29%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%220%22%20offset%3D%220%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.023593%22%20offset%3D%22.52%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.04%22%20offset%3D%22.7%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.07%22%20offset%3D%22.84%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.18%22%20offset%3D%22.94%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.25%22%20offset%3D%221%22%2F%3E%0D%0A%20%20%3C%2FlinearGradient%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Ctitle%3Epng-file%3C%2Ftitle%3E%0D%0A%20%3Cpath%20id%3D%22paper-white%22%20d%3D%22m81.73%2029.79-26.18-29.73h-42.55a13%2013%200%200%200-13%2012.94v84.63a13%2013%200%200%200%2013%2013h55.88a13%2013%200%200%200%2013-13z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22paper-shadow%22%20d%3D%22m81.73%2029.79-26.18-29.73h-42.55a13%2013%200%200%200-13%2012.94v84.63a13%2013%200%200%200%2013%2013h55.88a13%2013%200%200%200%2013-13z%22%20fill%3D%22url%28%23paper-shadow-gradient%29%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22corner-white%22%20d%3D%22m55.58%200%200.6%2022.13a6.09%206.09%200%200%200%206.09%206.08l19.56%201.62z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22corner-shadow%22%20d%3D%22m55.58%200%200.6%2022.13a6.09%206.09%200%200%200%206.09%206.08l19.56%201.62z%22%20fill%3D%22url%28%23corner-shadow-gradient%29%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22icon%22%20d%3D%22m66.5%2055.49a0.28%200.28%200%200%200%200-0.13%200.21%200.21%200%200%200%200-0.06%200.65%200.65%200%200%200-0.19-0.18l-25.59-14.77a0.58%200.58%200%200%200-0.57%200l-17%209.82a0.35%200.35%200%200%200-0.21%200.12l-6.15%203.56a0.65%200.65%200%200%200-0.16%200.13v5.16a0.56%200.56%200%200%200%200.29%200.49l25.5%2014.73a0.58%200.58%200%200%200%200.28%200.07%200.59%200.59%200%200%200%200.29-0.07l23.23-13.36a0.56%200.56%200%200%200%200.29-0.49v-4.95a0.17%200.17%200%200%200-0.01-0.07zm-26.06-14%2024.37%2014.07-9.39%205.44-6.55%203.79-3.87-2.25a9.58%209.58%200%200%200%203.13-1.08%203.88%203.88%200%200%200%202.28-3.22%203.89%203.89%200%200%200-2.32-3.24%209.54%209.54%200%200%200-3-1.05l2.12-4.56a0.33%200.33%200%200%200%200-0.33%200.33%200.33%200%200%200-0.31-0.06l-15.46%202.35a0.32%200.32%200%200%200-0.27%200.26%200.32%200.32%200%200%200%200.15%200.34l5.81%203.36a4.2%204.2%200%200%200-1.6%201.85l-11.18-6.38zm-4.44%2016.66%206.89%203.93a10.05%2010.05%200%200%201-4.94-1.18%203.27%203.27%200%200%201-1.95-2.66zm0.14-0.67a3.72%203.72%200%200%201%201.66-1.81l4.89%202.82a0.29%200.29%200%200%200%200.16%200h0.1a0.33%200.33%200%200%200%200.19-0.18l1.75-3.77a9.17%209.17%200%200%201%202.92%201%203.28%203.28%200%200%201%201.95%202.66%203.27%203.27%200%200%201-1.95%202.66%209.42%209.42%200%200%201-3.76%201.14zm8.08-3-1.52%203.27-4.23-2.44-0.67-0.39-5.32-3.07%2014-2.16-1.94%204.18zm-20.52-3.32%2011.65%206.64a2.18%202.18%200%200%200%200%200.44%203.88%203.88%200%200%200%202.27%203.22%2010.74%2010.74%200%200%200%205.26%201.26h1l4.33%202.47-5.65%203.21-11.23-6.48-13.14-7.58zm-6.07%204.16%2024.37%2014.07v3.61l-24.37-14.09zm25.5%2016.47v-2.4l5.51-3.18v3.61l-5.51%203.18zm22.24-11.65-16.11%209.3v-3.61l16.08-9.29z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%20%3Ctext%20id%3D%22label%22%20transform%3D%22rotate%28-.12%29%22%20x%3D%2212.07291%22%20y%3D%2298.885506%22%20fill%3D%22%234876ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2212.27px%22%20font-weight%3D%22700%22%3E.png%3C%2Ftext%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="high" alt="PNG icon" width="81" class="file_card" height="109"></div><div class="img_file"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2081.83%20110.59%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3CradialGradient%20id%3D%22paper-shadow-gradient%22%20cx%3D%2255.58%22%20cy%3D%2229.83%22%20r%3D%2235%22%20fx%3D%2280.58%22%20fy%3D%225.83%22%20gradientTransform%3D%22matrix%28.80002%20-.00067782%20.00076905%20.90769%2011.092%202.7912%29%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.2%22%20offset%3D%220%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.12%22%20offset%3D%22.19%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.06%22%20offset%3D%22.42%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.01%22%20offset%3D%22.68%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%220%22%20offset%3D%221%22%2F%3E%0D%0A%20%20%3C%2FradialGradient%3E%0D%0A%20%20%3ClinearGradient%20id%3D%22corner-shadow-gradient%22%20x1%3D%2261.737%22%20x2%3D%2273.471%22%20y1%3D%2224.742%22%20y2%3D%2212.467%22%20gradientTransform%3D%22scale%28.93808%201.066%29%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%220%22%20offset%3D%220%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.023593%22%20offset%3D%22.52%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.04%22%20offset%3D%22.7%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.07%22%20offset%3D%22.84%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.18%22%20offset%3D%22.94%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.25%22%20offset%3D%221%22%2F%3E%0D%0A%20%20%3C%2FlinearGradient%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Ctitle%3Epng-file%3C%2Ftitle%3E%0D%0A%20%3Cpath%20id%3D%22paper-white%22%20d%3D%22m81.73%2029.79-26.18-29.73h-42.55a13%2013%200%200%200-13%2012.94v84.63a13%2013%200%200%200%2013%2013h55.88a13%2013%200%200%200%2013-13z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22paper-shadow%22%20d%3D%22m81.73%2029.79-26.18-29.73h-42.55a13%2013%200%200%200-13%2012.94v84.63a13%2013%200%200%200%2013%2013h55.88a13%2013%200%200%200%2013-13z%22%20fill%3D%22url%28%23paper-shadow-gradient%29%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22corner-white%22%20d%3D%22m55.58%200%200.6%2022.13a6.09%206.09%200%200%200%206.09%206.08l19.56%201.62z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22corner-shadow%22%20d%3D%22m55.58%200%200.6%2022.13a6.09%206.09%200%200%200%206.09%206.08l19.56%201.62z%22%20fill%3D%22url%28%23corner-shadow-gradient%29%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22icon%22%20d%3D%22m%2016.57%2C60.7%20a%200.6%2C0.6%200%200%200%200.06%2C0.11%20l%200.06%2C0.1%200.1%2C0.09%20h%200.06%20l%2025.44%2C14.81%20h%200.05%20v%200%20a%200.56%2C0.56%200%200%200%200.44%2C0%20h%200.06%20v%200%20L%2065%2C62.57%20v%200%20a%200.28%2C0.28%200%200%200%200.1%2C-0.09%200.72%2C0.72%200%200%200%200.12%2C-0.21%20v%20-0.12%20c%200%2C0%200%2C-0.05%200%2C-0.08%20v%20-5.19%200%20a%200.57%2C0.57%200%200%200%200%2C-0.22%20c%200%2C0%200%2C0%200%2C0%20a%200.59%2C0.59%200%200%200%20-0.13%2C-0.18%20v%200%20L%2064.96%2C56.38%2039.57%2C41.56%20a%200.67%2C0.67%200%200%200%20-0.66%2C0%20L%2016.85%2C54.81%2016.73%2C54.9%20v%200%20a%200.57%2C0.57%200%200%200%20-0.12%2C0.18%20c%200%2C0%200%2C0%200%2C0%20a%200.8%2C0.8%200%200%200%200%2C0.21%20v%200%205.13%20c%200%2C0%200%2C0.06%200%2C0.08%20a%200.59%2C0.59%200%200%200%20-0.04%2C0.2%20z%20m%2011%2C-10.82%2012.92%2C-0.05%201.37%2C7.91%20-4.63%2C0.26%20a%200.32%2C0.32%200%200%200%200%2C0.64%20l%207.37%2C-0.43%201.68%2C7.72%20-23.1%2C-13.42%20z%20M%2064%2C58%20v%203.64%20L%2048%2C71.29%20V%2067.65%20Z%20M%2047.35%2C71.67%2043.26%2C74.13%20V%2070.49%20L%2047.35%2C68%20Z%20M%2042%2C70.5%20v%203.64%20l%20-24.15%2C-14%20v%20-3.66%20z%20m%20-2.75%2C-27.64%2024.17%2C14%20-16.07%2C9.67%20-0.27%2C-0.16%20-1.87%2C-8.56%20a%200.32%2C0.32%200%200%200%20-0.33%2C-0.25%20l%20-2.4%2C0.14%20-1.42%2C-8.25%20a%200.32%2C0.32%200%200%200%20-0.32%2C-0.27%20v%200%20l%20-12.11%2C0.06%20z%20m%20-16.7%2C10%2024.17%2C14%20-4.11%2C2.47%20-24.17%2C-14%20z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%20%3Ctext%20id%3D%22label%22%20transform%3D%22rotate%28-.12%29%22%20x%3D%2212.07291%22%20y%3D%2298.885506%22%20fill%3D%22%234876ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2212.27px%22%20font-weight%3D%22700%22%3E.jpg%3C%2Ftext%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="high" alt="JPEG icon" width="81" class="file_card" height="109"></div><div class="img_file"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2081.83%20110.59%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3CradialGradient%20id%3D%22paper-shadow-gradient%22%20cx%3D%2255.58%22%20cy%3D%2229.83%22%20r%3D%2235%22%20fx%3D%2280.58%22%20fy%3D%225.83%22%20gradientTransform%3D%22matrix%28.80002%20-.00067782%20.00076905%20.90769%2011.092%202.7912%29%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.2%22%20offset%3D%220%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.12%22%20offset%3D%22.19%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.06%22%20offset%3D%22.42%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.01%22%20offset%3D%22.68%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%220%22%20offset%3D%221%22%2F%3E%0D%0A%20%20%3C%2FradialGradient%3E%0D%0A%20%20%3ClinearGradient%20id%3D%22corner-shadow-gradient%22%20x1%3D%2261.737%22%20x2%3D%2273.471%22%20y1%3D%2224.742%22%20y2%3D%2212.467%22%20gradientTransform%3D%22scale%28.93808%201.066%29%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%220%22%20offset%3D%220%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.023593%22%20offset%3D%22.52%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.04%22%20offset%3D%22.7%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.07%22%20offset%3D%22.84%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.18%22%20offset%3D%22.94%22%2F%3E%0D%0A%20%20%20%3Cstop%20stop-color%3D%22%234876ff%22%20stop-opacity%3D%22.25%22%20offset%3D%221%22%2F%3E%0D%0A%20%20%3C%2FlinearGradient%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Ctitle%3Epng-file%3C%2Ftitle%3E%0D%0A%20%3Cpath%20id%3D%22paper-white%22%20d%3D%22m81.73%2029.79-26.18-29.73h-42.55a13%2013%200%200%200-13%2012.94v84.63a13%2013%200%200%200%2013%2013h55.88a13%2013%200%200%200%2013-13z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22paper-shadow%22%20d%3D%22m81.73%2029.79-26.18-29.73h-42.55a13%2013%200%200%200-13%2012.94v84.63a13%2013%200%200%200%2013%2013h55.88a13%2013%200%200%200%2013-13z%22%20fill%3D%22url%28%23paper-shadow-gradient%29%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22corner-white%22%20d%3D%22m55.58%200%200.6%2022.13a6.09%206.09%200%200%200%206.09%206.08l19.56%201.62z%22%20fill%3D%22%23fff%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22corner-shadow%22%20d%3D%22m55.58%200%200.6%2022.13a6.09%206.09%200%200%200%206.09%206.08l19.56%201.62z%22%20fill%3D%22url%28%23corner-shadow-gradient%29%22%2F%3E%0D%0A%20%3Cpath%20id%3D%22icon%22%20d%3D%22m66.5%2055.49a0.28%200.28%200%200%200%200-0.13%200.21%200.21%200%200%200%200-0.06%200.65%200.65%200%200%200-0.19-0.18l-25.59-14.77a0.58%200.58%200%200%200-0.57%200l-17%209.82a0.35%200.35%200%200%200-0.21%200.12l-6.15%203.56a0.65%200.65%200%200%200-0.16%200.13v5.16a0.56%200.56%200%200%200%200.29%200.49l25.5%2014.73a0.58%200.58%200%200%200%200.28%200.07%200.59%200.59%200%200%200%200.29-0.07l23.23-13.36a0.56%200.56%200%200%200%200.29-0.49v-4.95a0.17%200.17%200%200%200-0.01-0.07zm-26.06-14%2024.37%2014.07-9.39%205.44-6.55%203.79-3.87-2.25a9.58%209.58%200%200%200%203.13-1.08%203.88%203.88%200%200%200%202.28-3.22%203.89%203.89%200%200%200-2.32-3.24%209.54%209.54%200%200%200-3-1.05l2.12-4.56a0.33%200.33%200%200%200%200-0.33%200.33%200.33%200%200%200-0.31-0.06l-15.46%202.35a0.32%200.32%200%200%200-0.27%200.26%200.32%200.32%200%200%200%200.15%200.34l5.81%203.36a4.2%204.2%200%200%200-1.6%201.85l-11.18-6.38zm-4.44%2016.66%206.89%203.93a10.05%2010.05%200%200%201-4.94-1.18%203.27%203.27%200%200%201-1.95-2.66zm0.14-0.67a3.72%203.72%200%200%201%201.66-1.81l4.89%202.82a0.29%200.29%200%200%200%200.16%200h0.1a0.33%200.33%200%200%200%200.19-0.18l1.75-3.77a9.17%209.17%200%200%201%202.92%201%203.28%203.28%200%200%201%201.95%202.66%203.27%203.27%200%200%201-1.95%202.66%209.42%209.42%200%200%201-3.76%201.14zm8.08-3-1.52%203.27-4.23-2.44-0.67-0.39-5.32-3.07%2014-2.16-1.94%204.18zm-20.52-3.32%2011.65%206.64a2.18%202.18%200%200%200%200%200.44%203.88%203.88%200%200%200%202.27%203.22%2010.74%2010.74%200%200%200%205.26%201.26h1l4.33%202.47-5.65%203.21-11.23-6.48-13.14-7.58zm-6.07%204.16%2024.37%2014.07v3.61l-24.37-14.09zm25.5%2016.47v-2.4l5.51-3.18v3.61l-5.51%203.18zm22.24-11.65-16.11%209.3v-3.61l16.08-9.29z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%20%3Ctext%20id%3D%22label%22%20transform%3D%22rotate%28-.12%29%22%20x%3D%2212.07291%22%20y%3D%2298.885506%22%20fill%3D%22%234876ff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2212.27px%22%20font-weight%3D%22700%22%3E.gif%3C%2Ftext%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="high" alt="GIF icon" width="81" class="file_card" height="109"></div></div><span>DRAG IMAGE HERE TO BEGIN</span></div></div></div>
+</div>
+<div class="row">
+<div class="col-lg-12 upload_options">
+<span class="upload_option"><span class="upload_options_spacer_text hidden-xs">or you can</span><button class="FileInput-click_to_upload app_starter bttn bttn_dark"><img src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/images/upload_7f781aaee2d6c1cf29db87d76d056860.svg" importance="high" alt="upload icon" width="16" class="bttn_icon_left" height="18"><div>PICK IMAGE TO VECTORIZE</div></button></span><span class="upload_option hidden-xs"><span class="upload_options_spacer_text">or press</span><div class="paste_buttons"><span class="border_key ctl_key">&nbsp;CTRL&nbsp;</span><span class="border_key_plus">+</span><span class="border_key v_key">&nbsp;V&nbsp;</span><div class="paste_finish"><span class="upload_options_spacer_text pasted_text">pasted</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" font-weight="normal" width="52px" xmlns:xlink="http://www.w3.org/1999/xlink" font-size="13" font-family="sans-serif" font-style="normal" class="checkmark" version="1.1" height="52px"><path d="M14.1,27.2L21.2,34.4L37.9,17.6" fill="none" class="checkmark_check" /></svg></div></div></span>
+</div>
+</div>
+</div>
+<div style="height: 0; width: 0; overflow: hidden;">
+<label style="position: absolute; left: 0; top: 0; z-index: -10000;">
+<span style="color: transparent;">File Picker</span>
+<input style="display: none;" id="FileInput-Field" type="file" accept="image/*">
+</label>
+</div>
+
+</div>
+
+<div style="display: none;" id="App-App">
+<div id="App-ImageView-Pane" class="noselect">
+<div id="App-ImageView-CanvasContainer" class="canvas_container"></div>
+</div>
+
+<div id="App-Toolbar-Pane" class="noselect">
+<div class="Viewer-toolbar_container"><div class="Viewer-toolbar"><div class="Viewer-toolbar_white"><button id="App-Toolbar-Palette" title="Palette (Keyboard: P)" class="Viewer-pane_control_button Viewer-blue_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20width%3D%2219%22%20height%3D%2215%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%3Cpath%20fill%3D%22%23fff%22%20d%3D%22m11.121%200.36133c-0.057126%204.3405e-4%20-0.11474%207.0961e-4%20-0.17188%200.0019531-1.422%200.03095-2.8432%200.31153-4.1406%200.78711-0.68291%200.25067-1.5535%200.68209-1.6973%201.4727-0.19765%201.0814%200.90444%202.0933%200.46094%203.2012-0.25307%200.62988-1.1223%201.0132-1.7988%201.1562-1.8318%200.38886-4.4257%200.4961-3.623%203.2559%200.5857%202.011%202.3953%203.3278%204.3203%203.9199%203.384%201.042%207.207%200.3308%2010.193-1.4785%201.9202-1.1634%203.7707-3.1422%204.2246-5.3789%200.48286-2.3797-0.6458-4.506-2.7227-5.7031-1.5117-0.87123-3.274-1.2478-5.0449-1.2344zm1.3223%201.1523a1.6292%201.6292%200%200%201%201.6289%201.6289%201.6292%201.6292%200%200%201-1.6289%201.6289%201.6292%201.6292%200%200%201-1.6289-1.6289%201.6292%201.6292%200%200%201%201.6289-1.6289zm3.6484%202.7207a1.6292%201.6292%200%200%201%201.6289%201.6289%201.6292%201.6292%200%200%201-1.6289%201.6289%201.6292%201.6292%200%200%201-1.6289-1.6289%201.6292%201.6292%200%200%201%201.6289-1.6289zm-2.4473%204.0059a1.6292%201.6292%200%200%201%201.6289%201.6289%201.6292%201.6292%200%200%201-1.6289%201.6289%201.6292%201.6292%200%200%201-1.6289-1.6289%201.6292%201.6292%200%200%201%201.6289-1.6289zm-8.8887%200.041016a0.91212%201.8822%2073.647%200%201%200.95117%200.48828%200.91212%201.8822%2073.647%200%201-1.5488%201.4062%200.91212%201.8822%2073.647%200%201-2.0625-0.3457%200.91212%201.8822%2073.647%200%201%201.5488-1.4043%200.91212%201.8822%2073.647%200%201%201.1113-0.14453zm4.6504%201.6465a1.6292%201.6292%200%200%201%201.6289%201.6289%201.6292%201.6292%200%200%201-1.6289%201.6289%201.6292%201.6292%200%200%201-1.6289-1.6289%201.6292%201.6292%200%200%201%201.6289-1.6289z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A" importance="low" loading="lazy" decoding="async"><span id="App-Toolbar-PaletteNumColors"></span></button><div id="App-Toolbar-NumPanesGroup" class="Viewer-button_group"><button id="App-Toolbar-ViewSingle" title="Single Pane View (Keyboard: 1)" class="Viewer-pane_control_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20width%3D%2219%22%20height%3D%2215%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%3Crect%20x%3D%22.5%22%20y%3D%22.5%22%20width%3D%2218%22%20height%3D%2214%22%20rx%3D%221%22%20ry%3D%221%22%20fill%3D%22%23fff%22%20stroke%3D%22%234876ff%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%234876ff%22%20d%3D%22M9.5%204.507l3.317%205.987H6.184z%22%2F%3E%0D%0A%3C%2Fsvg%3E" importance="low" loading="lazy" decoding="async"></button><button id="App-Toolbar-ViewSplit" title="Split View (Keyboard: 2)" class="Viewer-pane_control_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20width%3D%2219%22%20height%3D%2215%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Crect%20x%3D%22.5%22%20y%3D%22.5%22%20width%3D%2218%22%20height%3D%2214%22%20rx%3D%221%22%20ry%3D%221%22%20fill%3D%22%23fff%22%20stroke%3D%22%234876ff%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%20%3Cpath%20d%3D%22m9.5%200.5v14%22%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%20stroke-width%3D%221px%22%2F%3E%0D%0A%20%3Cpath%20d%3D%22m5%205.25%202.5%204.5h-5z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%20%3Cpath%20d%3D%22m14%205.25%202.5%204.5h-5z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async"></button></div><div class="Viewer-button_group"><button id="App-Toolbar-ViewBitmap" title="Bitmap (Keyboard: B)" class="Viewer-pane_control_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20width%3D%2219%22%20height%3D%2215%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%3Crect%20x%3D%22.5%22%20y%3D%22.5%22%20width%3D%2218%22%20height%3D%2214%22%20rx%3D%221%22%20ry%3D%221%22%20fill%3D%22%23fff%22%20stroke%3D%22%234876ff%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%3Cpath%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%20stroke-width%3D%221px%22%20d%3D%22M9.5%204.507l3.317%205.987H6.184z%22%2F%3E%0D%0A%3C%2Fsvg%3E" importance="low" loading="lazy" decoding="async"></button></div><div class="Viewer-button_group"><button id="App-Toolbar-ZoomIn" title="Zoom in (Keyboard: PgUp)" class="Viewer-zoom_in_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2016.69%2016.98%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m10.93%2011.23%205.4%205.4%22%2F%3E%0D%0A%20%3Ccircle%20class%3D%22cls-1%22%20cx%3D%226.67%22%20cy%3D%226.67%22%20r%3D%226.17%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m4.03%206.67h5.29m-2.65-2.64v5.29%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async"></button><button id="App-Toolbar-ZoomOut" title="Zoom out (Keyboard: PgDown)" class="Viewer-zoom_out_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2016.69%2016.98%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Cg%20data-name%3D%22Layer%202%22%3E%0D%0A%20%20%3Cg%20data-name%3D%22Layer%201%22%3E%0D%0A%20%20%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m10.93%2011.23%205.4%205.4%22%2F%3E%0D%0A%20%20%20%3Ccircle%20class%3D%22cls-1%22%20cx%3D%226.67%22%20cy%3D%226.67%22%20r%3D%226.17%22%2F%3E%0D%0A%20%20%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m4.03%206.67h5.29%22%2F%3E%0D%0A%20%20%3C%2Fg%3E%0D%0A%20%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async"></button><button id="App-Toolbar-ZoomToFit" title="Zoom to fit (Keyboard: Home)" class="hidden-xs Viewer-zoom_to_fit_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2018.75%2015.01%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%3B%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Ctitle%3Efit-to-screen%3C%2Ftitle%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m0.5%205.17v-3.69a1%201%200%200%201%201.1-0.98h4.51%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m12.64%200.5h4.51a1%201%200%200%201%201.1%201v3.67%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m18.25%209.84v3.69a1%201%200%200%201-1.1%201h-4.51%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m3.4%2014.51h-2.33a0.53%200.53%200%200%201-0.57-0.51v-5.77a0.53%200.53%200%200%201%200.57-0.48h8a0.52%200.52%200%200%201%200.57%200.48v5.77a0.52%200.52%200%200%201-0.57%200.47h-5.67z%22%2F%3E%0D%0A%20%3Cline%20class%3D%22cls-1%22%20x1%3D%2215.11%22%20x2%3D%2212.08%22%20y1%3D%228.05%22%20y2%3D%228.06%22%2F%3E%0D%0A%20%3Cpolyline%20class%3D%22cls-1%22%20points%3D%2213.45%205.95%2015.71%208.02%2013.64%2010.28%22%2F%3E%0D%0A%20%3Cline%20class%3D%22cls-1%22%20x1%3D%229.4%22%20x2%3D%229.41%22%20y1%3D%222.84%22%20y2%3D%225.87%22%2F%3E%0D%0A%20%3Cpolyline%20class%3D%22cls-1%22%20points%3D%227.29%204.5%209.36%202.24%2011.62%204.3%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async"></button><button id="App-Toolbar-Zoom1To1" title="Zoom 1:1 (Keyboard: End)" class="hidden-xs Viewer-zoom_1_to_1_button Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2018.75%2015.01%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E%0D%0A%20%20.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%3B%7D%0D%0A%20%20.cls-2%7Bfont-size%3A6.54px%3Bfill%3A%234876ff%3Bfont-family%3Asans-serif%3Bfont-weight%3A700%3Bletter-spacing%3A0.08em%3B%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Ctitle%3E1-1-ratio%3C%2Ftitle%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m0.5%205.17v-3.69a1%201%200%200%201%201.1-0.98h4.51%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m12.64%200.5h4.51a1%201%200%200%201%201.1%201v3.67%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m18.25%209.84v3.69a1%201%200%200%201-1.1%201h-4.51%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m6.11%2014.51h-4.51a1%201%200%200%201-1.1-1v-3.67%22%2F%3E%0D%0A%20%3Ctext%20class%3D%22cls-2%22%20x%3D%224%22%20y%3D%229.9200001%22%3E1%3A1%3C%2Ftext%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async"></button></div><div id="App-Toolbar-ThumbsUpDown" class="hidden-xs Viewer-button_group"><button id="App-Toolbar-ThumbsUp" title="Thumbs up" class="App-Toolbar-thumbs Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M20.294%209.7C19.894%209.2%2019.294%209%2018.694%209H16.694C16.894%208.5%2016.994%208%2016.994%207.5V6.2C17.094%205%2016.094%204%2014.894%204H13.394C12.194%204%2011.194%205%2011.194%206.2V7.4L8.598%209.996C8.207%209.421%207.566%209.02%206.8%209.02H5.2C4%209.02%203%2010%203%2011.2L3%2017.9C3%2019%204%2020%205.2%2020H6.8C7.33535%2019.9957%207.85041%2019.7946%208.247%2019.435C8.637%2019.781%209.141%2020%209.694%2020H17.594C18.694%2020%2019.694%2019.1%2019.794%2018C19.794%2018%2020.794%2011.7%2020.794%2011.4C20.894%2010.8%2020.694%2010.2%2020.294%209.7V9.7ZM6.8%2018.5H5.2C4.823%2018.5%204.5%2018.17%204.5%2017.9L4.5%2011.2C4.5%2010.831%204.821%2010.52%205.2%2010.52H6.8C7.177%2010.52%207.448%2010.857%207.5%2011.186V12.349C7.5%2012.366%207.494%2012.383%207.494%2012.4L7.494%2017.8L7.496%2017.818C7.48725%2017.9985%207.4107%2018.169%207.28166%2018.2954C7.15262%2018.4219%206.9806%2018.4949%206.8%2018.5V18.5ZM19.294%2011.276V11.342C19.239%2011.846%2018.753%2014.988%2018.313%2017.765L18.305%2017.814L18.3%2017.864C18.271%2018.185%2017.921%2018.5%2017.594%2018.5H9.694C9.5134%2018.4949%209.34138%2018.4219%209.21234%2018.2954C9.0833%2018.169%209.00675%2017.9985%208.998%2017.818L9%2017.8L9%2012.355C9.016%2011.961%209.245%2011.471%209.455%2011.26L12.255%208.46L12.694%208.021V6.2C12.694%205.827%2013.021%205.5%2013.394%205.5H14.894C15.073%205.5%2015.245%205.575%2015.365%205.705C15.4123%205.75382%2015.4488%205.81214%2015.4719%205.8761C15.495%205.94006%2015.5042%206.0082%2015.499%206.076L15.494%206.138V7.5C15.4914%207.82387%2015.4258%208.14414%2015.301%208.443L14.479%2010.5H18.695C18.814%2010.5%2019.028%2010.518%2019.124%2010.637C19.21%2010.744%2019.349%2010.954%2019.316%2011.153L19.294%2011.276Z%22%20fill%3D%22%234876ff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" importance="low" loading="lazy" decoding="async"></button><button id="App-Toolbar-ThumbsDown" title="Thumbs down" class="App-Toolbar-thumbs Viewer-clear_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M3.706%2014.3C4.106%2014.8%204.706%2015%205.306%2015L7.306%2015C7.106%2015.5%207.006%2016%207.006%2016.5L7.006%2017.8C6.906%2019%207.906%2020%209.106%2020L10.606%2020C11.806%2020%2012.806%2019%2012.806%2017.8L12.806%2016.6L15.402%2014.004C15.793%2014.579%2016.434%2014.98%2017.2%2014.98L18.8%2014.98C20%2014.98%2021%2014%2021%2012.8L21%206.1C21%205%2020%204%2018.8%204L17.2%204C16.6647%204.00427%2016.1496%204.20538%2015.753%204.565C15.363%204.219%2014.859%204%2014.306%204L6.406%204C5.306%204%204.306%204.9%204.206%206C4.206%206%203.206%2012.3%203.206%2012.6C3.106%2013.2%203.306%2013.8%203.706%2014.3V14.3ZM17.2%205.5L18.8%205.5C19.177%205.5%2019.5%205.83%2019.5%206.1L19.5%2012.8C19.5%2013.169%2019.179%2013.48%2018.8%2013.48L17.2%2013.48C16.823%2013.48%2016.552%2013.143%2016.5%2012.814L16.5%2011.651C16.5%2011.634%2016.506%2011.617%2016.506%2011.6L16.506%206.2L16.504%206.182C16.5127%206.00154%2016.5893%205.83104%2016.7183%205.7046C16.8474%205.57815%2017.0194%205.50508%2017.2%205.5V5.5ZM4.706%2012.724L4.706%2012.658C4.761%2012.154%205.247%209.012%205.687%206.235L5.695%206.186L5.7%206.136C5.729%205.815%206.079%205.5%206.406%205.5L14.306%205.5C14.4866%205.50508%2014.6586%205.57815%2014.7877%205.7046C14.9167%205.83104%2014.9933%206.00154%2015.002%206.182L15%206.2L15%2011.645C14.984%2012.039%2014.755%2012.529%2014.545%2012.74L11.745%2015.54L11.306%2015.979L11.306%2017.8C11.306%2018.173%2010.979%2018.5%2010.606%2018.5L9.106%2018.5C8.927%2018.5%208.755%2018.425%208.635%2018.295C8.58766%2018.2462%208.55123%2018.1879%208.52813%2018.1239C8.50503%2018.0599%208.49578%2017.9918%208.501%2017.924L8.506%2017.862L8.506%2016.5C8.50864%2016.1761%208.57419%2015.8559%208.699%2015.557L9.521%2013.5L5.305%2013.5C5.186%2013.5%204.972%2013.482%204.876%2013.363C4.79%2013.256%204.651%2013.046%204.684%2012.847L4.706%2012.724Z%22%20fill%3D%22%234876ff%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" importance="low" loading="lazy" decoding="async"></button></div><a alt="Download" id="App-DownloadLink" href="#" title="Download" class="Viewer-blue_button Viewer-button_base isPaid nowrap"><span style="position: relative;" class="bttn_icon_left"><img src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/images/download-white_f8ca4e128f300e1b71d929e94aed67cb.svg" importance="low" alt="Download icon" id="Viewer-DownloadCurrentIcon" loading="lazy" decoding="async"></span><span class="hidden-md hidden-sm hidden-xs"> &nbsp;<span class="showPaid">DOWNLOAD</span><span class="showFree">FREE DOWNLOAD</span></span></a></div></div><button id="App-Toolbar-Exit" title="Exit" class="App-exit_app Viewer-cancel_button Viewer-blue_button Viewer-button_base"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2017.1%2017.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%3Cpath%20stroke%3D%22%23fff%22%20d%3D%22M16.6.5L.5%2016.6M.5.5l16.1%2016.1%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async"></button></div>
+</div>
+</div>
+
+<div tabindex="-1" id="App-SubApps-LightBox" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body App-SubApps-body">
+<div id="App-SubApps-App">
+<div id="App-SubApps-View" class="canvas_container noselect">
+</div>
+<div id="App-SubApps-sidebar" class="allowSelect">
+<div class="App-SubApps-Toolbar-container">
+<div class="Viewer-button_group">
+
+<button id="App-SubApps-Toolbar-Undo" title="Undo (Keyboard: Ctrl + Z)" class="App-SubApps-Toolbar-button_icon_20 Viewer-clear_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cpath%20d%3D%22m9.2%203.42h-6.54l2.15-2.15-0.74-0.7-3%203a0.5%200.5%200%200%200%200%200.7l3%203%200.71-0.7-2.12-2.15h6.54a4.84%204.84%200%200%201%204.87%204.84v0.32a4.84%204.84%200%200%201-4.87%204.84h-7.25v1h7.25a5.85%205.85%200%200%200%205.87-5.84v-0.32a5.85%205.85%200%200%200-5.87-5.84z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+
+<button id="App-SubApps-Toolbar-Redo" title="Redo (Keyboard: Ctrl + Shift + Z)" class="App-SubApps-Toolbar-button_icon_20 Viewer-clear_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cpath%20d%3D%22m6.8%203.42h6.54l-2.15-2.15%200.74-0.7%203%203a0.5%200.5%200%200%201%200%200.7l-3%203-0.71-0.7%202.12-2.15h-6.54a4.84%204.84%200%200%200-4.87%204.84v0.32a4.84%204.84%200%200%200%204.87%204.84h7.25v1h-7.25a5.85%205.85%200%200%201-5.87-5.84v-0.32a5.85%205.85%200%200%201%205.87-5.84z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+</div>
+<div class="Viewer-button_group">
+
+<button id="App-SubApps-Toolbar-ZoomIn" title="Zoom in (Keyboard: PgUp)" class="Viewer-zoom_in_button Viewer-clear_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2016.69%2016.98%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m10.93%2011.23%205.4%205.4%22%2F%3E%0D%0A%20%3Ccircle%20class%3D%22cls-1%22%20cx%3D%226.67%22%20cy%3D%226.67%22%20r%3D%226.17%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m4.03%206.67h5.29m-2.65-2.64v5.29%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+
+<button id="App-SubApps-Toolbar-ZoomOut" title="Zoom out (Keyboard: PgDown)" class="Viewer-zoom_out_button Viewer-clear_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2016.69%2016.98%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Cg%20data-name%3D%22Layer%202%22%3E%0D%0A%20%20%3Cg%20data-name%3D%22Layer%201%22%3E%0D%0A%20%20%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m10.93%2011.23%205.4%205.4%22%2F%3E%0D%0A%20%20%20%3Ccircle%20class%3D%22cls-1%22%20cx%3D%226.67%22%20cy%3D%226.67%22%20r%3D%226.17%22%2F%3E%0D%0A%20%20%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m4.03%206.67h5.29%22%2F%3E%0D%0A%20%20%3C%2Fg%3E%0D%0A%20%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+
+<button id="App-SubApps-Toolbar-ZoomToFit" title="Zoom to fit (Keyboard: Home)" class="hidden-xs Viewer-zoom_to_fit_button Viewer-clear_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2018.75%2015.01%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cdefs%3E%0D%0A%20%20%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%234876ff%3Bstroke-linejoin%3Around%3B%7D%3C%2Fstyle%3E%0D%0A%20%3C%2Fdefs%3E%0D%0A%20%3Ctitle%3Efit-to-screen%3C%2Ftitle%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m0.5%205.17v-3.69a1%201%200%200%201%201.1-0.98h4.51%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m12.64%200.5h4.51a1%201%200%200%201%201.1%201v3.67%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m18.25%209.84v3.69a1%201%200%200%201-1.1%201h-4.51%22%2F%3E%0D%0A%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22m3.4%2014.51h-2.33a0.53%200.53%200%200%201-0.57-0.51v-5.77a0.53%200.53%200%200%201%200.57-0.48h8a0.52%200.52%200%200%201%200.57%200.48v5.77a0.52%200.52%200%200%201-0.57%200.47h-5.67z%22%2F%3E%0D%0A%20%3Cline%20class%3D%22cls-1%22%20x1%3D%2215.11%22%20x2%3D%2212.08%22%20y1%3D%228.05%22%20y2%3D%228.06%22%2F%3E%0D%0A%20%3Cpolyline%20class%3D%22cls-1%22%20points%3D%2213.45%205.95%2015.71%208.02%2013.64%2010.28%22%2F%3E%0D%0A%20%3Cline%20class%3D%22cls-1%22%20x1%3D%229.4%22%20x2%3D%229.41%22%20y1%3D%222.84%22%20y2%3D%225.87%22%2F%3E%0D%0A%20%3Cpolyline%20class%3D%22cls-1%22%20points%3D%227.29%204.5%209.36%202.24%2011.62%204.3%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+</div>
+<div class="Viewer-button_group"><img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%20%3Ccircle%20stroke%3D%22%234876ff%22%20fill%3D%22none%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%227.5%22%20%2F%3E%0D%0A%20%20%3Ccircle%20stroke%3D%22%234876ff%22%20fill%3D%22none%22%20cx%3D%227.1290321%22%20cy%3D%225.7526879%22%20r%3D%223.5%22%20%2F%3E%0D%0A%20%20%3Ccircle%20stroke%3D%22%234876ff%22%20fill%3D%22none%22%20cx%3D%229.8827457%22%20cy%3D%2211.752687%22%20r%3D%221.5%22%20%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" width="20" style="margin: 5px 2px 5px 10px;" loading="lazy" decoding="async" height="20"><div id="App-SubApps-Toolbar-NumColors"></div></div><div class="Viewer-spacer"></div>
+<div class="Viewer-button_group Viewer-no_divider">
+
+<button id="App-SubApps-Toolbar-Close" title="Close (Keyboard: Escape)" class="App-SubApps-Toolbar-button_icon_20 Viewer-clear_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2017.1%2017.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%3Cpath%20stroke%3D%22%234876ff%22%20d%3D%22M16.6.5L.5%2016.6M.5.5l16.1%2016.1%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+
+<button id="App-SubApps-Toolbar-Accept" title="Accept (Keyboard: Enter)" class="App-SubApps-Toolbar-button_icon_20 Viewer-blue_button Viewer-button_base">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cpath%20d%3D%22m0.389%208.26c1.85%202.29%203.69%204.6%205.55%206.89%203.21-4.96%206.43-9.92%209.64-14.9%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221px%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" loading="lazy" decoding="async">
+</button>
+</div>
+</div>
+<div class="App-SubApps-sidebar_body">
+<div id="App-SubApps-Palette-Editor-Container">
+</div>
+<div id="App-SubApps-Palette-ColorEditor-Container" class="App-SubApps-Palette-ColorEditor-disabled">
+<table id="App-SubApps-Palette-ColorEditor-ControlsContainer" class="table table-condensed table_no_border table_very_condensed_height">
+<tbody>
+<tr>
+<td class="App-SubApps-Palette-ColorEditor-input_title">
+<div>RGB</div>
+</td>
+<td class="App-SubApps-Palette-ColorEditor-input_td">
+<div id="App-SubApps-Palette-ColorEditor-ColorInputContainer">
+<input id="App-SubApps-Palette-ColorEditor-ColorInput" type="color" oninput="this.setAttribute(&#39;value&#39;, this.value);
+var output = this.parentElement.getElementsByTagName(&#39;output&#39;)[0]
+if (output) output.value = this.value">
+<label for="App-SubApps-Palette-ColorEditor-ColorInput" id="App-SubApps-Palette-ColorEditor-ColorLabel" class="App-SubApps-Palette-ColorEditor-input_label">
+<output id="App-SubApps-Palette-ColorEditor-ColorOutput">#000000</output>
+</label>
+</div>
+</td>
+<td rowspan="2">
+<div id="App-SubApps-Palette-ColorEditor-ExitButtonGroup">
+
+<button id="App-SubApps-Palette-ColorEditor-RevertButton" title="Revert" class="bttn bttn_wire bttn_icon_only">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cpath%20d%3D%22m9.2%203.42h-6.54l2.15-2.15-0.74-0.7-3%203a0.5%200.5%200%200%200%200%200.7l3%203%200.71-0.7-2.12-2.15h6.54a4.84%204.84%200%200%201%204.87%204.84v0.32a4.84%204.84%200%200%201-4.87%204.84h-7.25v1h7.25a5.85%205.85%200%200%200%205.87-5.84v-0.32a5.85%205.85%200%200%200-5.87-5.84z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" width="20" loading="lazy" decoding="async" height="20">
+</button>
+
+<button id="App-SubApps-Palette-ColorEditor-CloseButton" title="Cancel" class="bttn bttn_wire bttn_icon_only">
+<img src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2017.1%2017.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%3Cpath%20stroke%3D%22%234876ff%22%20d%3D%22M16.6.5L.5%2016.6M.5.5l16.1%2016.1%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" width="20" loading="lazy" decoding="async" height="20">
+</button>
+
+<button id="App-SubApps-Palette-ColorEditor-AcceptButton" title="Accept" class="bttn bttn_dark bttn_icon_only">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cpath%20d%3D%22m0.389%208.26c1.85%202.29%203.69%204.6%205.55%206.89%203.21-4.96%206.43-9.92%209.64-14.9%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%221px%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" width="20" loading="lazy" decoding="async" height="20">
+</button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="App-SubApps-Palette-ColorEditor-input_title">
+<div>A</div>
+</td>
+<td class="App-SubApps-Palette-ColorEditor-input_td">
+<div id="App-SubApps-Palette-ColorEditor-OpacityInputContainer">
+<input min="0" max="255" step="1" id="App-SubApps-Palette-ColorEditor-OpacityInput" type="number" required="true">
+<div id="App-SubApps-Palette-ColorEditor-IncludeContainer">
+<input id="App-SubApps-Palette-ColorEditor-IncludeInput" type="checkbox">
+<label alt="Include in Result" for="App-SubApps-Palette-ColorEditor-IncludeInput" id="App-SubApps-Palette-ColorEditor-IncludeLabel" title="Include in Result" class="App-SubApps-Palette-ColorEditor-input_label">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20version%3D%221.1%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23555555%22%20d%3D%22m8%203.09c3.05%200.00137%205.83%202.53%207.47%204.86%200.0055%200.00728%200.0082%200.0241%200.0082%200.0505%200%200.0273-0.0027%200.0446-0.0082%200.0519-1.65%202.34-4.43%204.86-7.48%204.86-3.05%200-5.83-2.53-7.47-4.86-0.00548-0.00728-0.00821-0.0241-0.00821-0.0505%200-0.0273%200.00274-0.0446%200.00821-0.0519%201.65-2.34%204.43-4.86%207.48-4.86z%22%2F%3E%0D%0A%20%3Cpath%20fill%3D%22%23555555%22%20opacity%3D%22.5%22%20d%3D%22m11.7%208c0%202.06-1.67%203.72-3.73%203.72-2.06%200-3.73-1.67-3.73-3.72%201e-7%20-2.06%201.67-3.72%203.73-3.72%202.06-2e-7%203.73%201.67%203.73%203.72zm-0.543%200.00136c-10.7-4.92-10.7-4.92%200%200z%22%2F%3E%0D%0A%20%3Cpath%20fill%3D%22%23555555%22%20d%3D%22m9.9%208c0%201.05-0.852%201.9-1.9%201.9-1.05%200-1.9-0.85-1.9-1.9%201e-7%20-1.05%200.852-1.9%201.9-1.9%201.05%200%201.9%200.85%201.9%201.9z%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" alt="Eye Icon" width="20" loading="lazy" decoding="async" height="20">
+</label>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="App-SubApps-Palette-ColorEditor-Prompt">
+<div style="flex-direction: row; top: 0;">
+<div>Original</div>
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2250%22%20height%3D%2230%22%20version%3D%221.1%22%20viewBox%3D%220%200%2050%2030%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Ctitle%3Emouse-click%3C%2Ftitle%3E%0D%0A%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%3E%0D%0A%20%20%3Cg%20stroke-linecap%3D%22square%22%3E%0D%0A%20%20%20%3Cpath%20d%3D%22m19%2022a4%204%200%200%200%204.9%202.6%204%204%200%200%200%202.9-4.8%204%204%200%200%200-4.6-3.1%204%204%200%200%200-3.4%204.4%22%2F%3E%0D%0A%20%20%20%3Cpath%20d%3D%22m22%2011c0.9%202.8%203.9%204.8%206.6%204%202.8-0.74%204.6-3.7%203.9-6.6-0.6-2.9-3.3-4.8-6.2-4.3-2.9%200.43-4.9%203.1-4.5%206.1%22%2F%3E%0D%0A%20%20%20%3Cpath%20d%3D%22m12%2017c1.1%207.2%207.8%2012%2015%2011%207.4-1%2013-7.7%2012-15-0.92-7.3-7.5-13-15-12-7.4%200.91-13.1%207.55-12.1%2015%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%20%20%3C%2Fg%3E%0D%0A%20%20%3Cpath%20d%3D%22m50%2014.5h-9.59%22%20stroke-width%3D%221.03px%22%2F%3E%0D%0A%20%20%3Cpath%20d%3D%22m19%2012c-2.9%201.1-5.9%202.2-8.3%202.8s-4.5%200.56-6.2%200.56h-4.5%22%20stroke-width%3D%221px%22%2F%3E%0D%0A%20%3C%2Fg%3E%0D%0A%20%3Cpath%20d%3D%22m39.6%2014.5%203.8%202.2v-4.4z%22%20fill%3D%22%234876ff%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%20%3Cpath%20transform%3D%22matrix%28-.56%20.83%20.83%20.56%2029%20-25%29%22%20d%3D%22m34%2014%201.9-4.1%202.5%203.7z%22%20fill%3D%22%234876ff%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" alt="Input and Output Circles" loading="lazy" decoding="async"><div>Output</div>
+</div>
+<div>
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2220%22%20version%3D%221.1%22%20viewBox%3D%220%200%2040%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Ctitle%3Emouse-click%3C%2Ftitle%3E%0D%0A%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%3E%0D%0A%20%20%3Cpath%20d%3D%22m10%2011a4%204%200%200%201-4.9%202.6%204%204%200%200%201-2.9-4.8%204%204%200%200%201%204.6-3.1%204%204%200%200%201%203.4%204.4%22%20stroke-linecap%3D%22square%22%2F%3E%0D%0A%20%20%3Cpath%20d%3D%22m39%2011a6.2%206.2%200%200%201-6.9%205.2%206.2%206.2%200%200%201-5.3-6.9%206.2%206.2%200%200%201%206.8-5.4%206.2%206.2%200%200%201%205.4%206.8%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%20%20%3Cpath%20d%3D%22m6.2%209.5c5.3-4.2%2012-4.5%2017-2.5%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221px%22%2F%3E%0D%0A%20%3C%2Fg%3E%0D%0A%20%3Cpath%20d%3D%22m26%208.2-5.2%201%201.6-4.9z%22%20fill%3D%22%234876ff%22%20stroke-width%3D%221.3%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" alt="Icon for Mouse Drag" style="margin-top: 10px;" loading="lazy" decoding="async">
+<div>
+Merge
+</div>
+</div>
+<div>
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2264%22%20height%3D%2230%22%20version%3D%221.1%22%20viewBox%3D%220%200%2064%2030%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Ctitle%3Emouse-click%3C%2Ftitle%3E%0D%0A%20%3Cg%20transform%3D%22translate%286.71%20.61%29%22%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%20stroke-linecap%3D%22square%22%3E%0D%0A%20%20%3Cpath%20d%3D%22m19%2022a4%204%200%200%200%204.9%202.6%204%204%200%200%200%202.9-4.8%204%204%200%200%200-4.6-3.1%204%204%200%200%200-3.4%204.4%22%2F%3E%0D%0A%20%20%3Cpath%20d%3D%22m22%2011c0.9%202.8%203.9%204.8%206.6%204%202.8-0.74%204.6-3.7%203.9-6.6-0.6-2.9-3.3-4.8-6.2-4.3-2.9%200.43-4.9%203.1-4.5%206.1%22%2F%3E%0D%0A%20%20%3Cpath%20d%3D%22m12%2017c1.1%207.2%207.8%2012%2015%2011%207.4-1%2013-7.7%2012-15-0.92-7.3-7.5-13-15-12-7.4%200.91-13.1%207.74-12.1%2015.1%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%20%3C%2Fg%3E%0D%0A%20%3Cpath%20d%3D%22m59.2%2016.9c-8.2%201.1-18.3-2.49-25.3-6.69%22%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221px%22%2F%3E%0D%0A%20%3Cpath%20d%3D%22m62.6%2016.7-4.1-1.9%200.54%204.4z%22%20fill%3D%22%234876ff%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" alt="Icon for Split Circles" loading="lazy" decoding="async">
+<div>
+Split
+</div>
+</div>
+<div>
+<img src="data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20version%3D%221.1%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0D%0A%20%3Ctitle%3Emouse-click%3C%2Ftitle%3E%0D%0A%20%3Cpath%20d%3D%22m8.9%209.7%202%202.1%200.86-0.89-2.1-2%201.8-1.8-6-1.6%201.6%206zm-2.2%203.1-2.3-8.4%208.4%202.3-2.2%202.1%202.1%202-2%202-2-2.1z%22%20fill%3D%22%234876ff%22%2F%3E%0D%0A%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%234876ff%22%3E%0D%0A%20%20%3Cpath%20d%3D%22m6.2%2010a4.9%204.9%200%200%201-5.2-2.4%204.9%204.9%200%200%201%200.69-5.7%204.9%204.9%200%200%201%205.7-1.1%204.9%204.9%200%200%201%202.7%205.1%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%22.65%22%2F%3E%0D%0A%20%20%3Cg%20stroke-width%3D%22.65px%22%3E%0D%0A%20%20%20%3Cpath%20transform%3D%22translate%28.084%20-.17%29%22%20d%3D%22m4.4%207c-0.35%200.38-0.7%200.77-1%201.1%22%2F%3E%0D%0A%20%20%20%3Cpath%20transform%3D%22translate%28-.082%20.17%29%22%20d%3D%22m3.9%205.7c-0.54%200.11-1.1%200.23-1.6%200.34%22%2F%3E%0D%0A%20%20%20%3Cpath%20transform%3D%22translate%28-.2%20.47%29%22%20d%3D%22m3.8%204.1c-0.46-0.1-0.91-0.21-1.4-0.31%22%2F%3E%0D%0A%20%20%20%3Cpath%20transform%3D%22translate%28.38%20-.17%29%22%20d%3D%22m5.5%203.7c0.1-0.53%200.21-1.1%200.31-1.6%22%2F%3E%0D%0A%20%20%20%3Cpath%20transform%3D%22translate%28-.03%20.48%29%22%20d%3D%22m7.1%203.9c0.4-0.35%200.79-0.7%201.2-1.1%22%2F%3E%0D%0A%20%20%20%3Cpath%20transform%3D%22translate%28-.088%20.14%29%22%20d%3D%22m4.4%203.4c-0.24-0.39-0.48-0.77-0.72-1.2%22%2F%3E%0D%0A%20%20%3C%2Fg%3E%0D%0A%20%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E%0D%0A" importance="low" alt="Icon for Mouse Click" style="margin-top: 10px;" loading="lazy" decoding="async">
+<div>
+Edit
+</div>
+</div>
+</div>
+</div>
+<h5 style="margin: 17px 0 0;">
+Palette Presets <span style="font-size: 65%;"> (by number of colors)</span>
+</h5>
+<div class="App-SubApps-Palette-presets_container noselect">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div tabindex="-1" id="App-ProgressLightbox" class="modal">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-body">
+<div id="App-Progress-Pane">
+
+<table>
+<tr id="App-ProgressLightboxBar-Pane" class="App-Progress-progress">
+<td style="font-weight: 500;">Loading</td>
+<td>
+<div class="progress">
+<div id="App-ProgressLightboxBar-Bar" class="progress-bar App-Progress-bar">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="modal-footer">
+<button style="float: right;" data-dismiss="modal" class="bttn bttn_red App-cancel_upload">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+<div tabindex="-1" id="App-Progress-Dialog" class="modal">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-body">
+<div id="App-Progress-Pane">
+
+<table>
+<tr id="App-Progress-Upload-Pane" class="App-Progress-progress">
+<td style="font-weight: 500;">Upload</td>
+<td>
+<div class="progress">
+<div id="App-Progress-Upload-Bar" class="progress-bar App-Progress-bar">
+</div>
+</div>
+</td>
+</tr>
+<tr id="App-Progress-Process-Pane" class="App-Progress-progress">
+<td style="font-weight: 500;">Process</td>
+<td>
+<div class="progress">
+<div id="App-Progress-Process-Bar" class="progress-bar App-Progress-bar">
+</div>
+</div>
+</td>
+</tr>
+<tr id="App-Progress-Download-Pane" class="App-Progress-progress">
+<td style="font-weight: 500;">Fetch</td>
+<td>
+<div class="progress">
+<div id="App-Progress-Download-Bar" class="progress-bar App-Progress-bar">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="modal-footer">
+<button style="float: right;" data-dismiss="modal" class="bttn bttn_red App-cancel_upload">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+<div tabindex="-1" id="App-Error-Dialog" class="modal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h3>Error</h3>
+</div>
+<div id="App-Error-Message" class="modal-body">
+</div>
+<div class="modal-footer">
+<button id="App-Error-RetryButton" class="btn btn-warning">Retry</button><a href="/" class="btn btn-default App-force_exit">Exit Application</a>
+</div>
+</div>
+</div>
+</div>
+<div tabindex="-1" id="App-Feedback-Dialog" class="modal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h3>Please help us improve!</h3>
+</div>
+<div class="modal-body">
+<p>
+We're sorry to hear the result didn't come out great on your image. 
+</p>
+<p>
+Please help us improve by submitting the original image and the result for our internal review. Hopefully we will be able to fix our algorithms to better handle your image in the future. 
+</p>
+<div class="form-group">
+<label for="App-Feedback-Message" class="control-label">What went wrong? </label><textarea id="App-Feedback-Message" placeholder="(Optional)" rows="4" class="form-control"></textarea>
+</div>
+<p class="comment">
+By submitting this image you grant us permission to use it for improving the service in accordance with our <a rel="noreferrer" href="/policies/terms" target="_blank">terms <span style="font-size: smaller;" class="glyphicon glyphicon-new-window"> </span></a> and <a rel="noreferrer" href="/policies/privacy" target="_blank">privacy policy <span style="font-size: smaller;" class="glyphicon glyphicon-new-window"> </span></a>. 
+</p>
+</div>
+<div class="modal-footer">
+<button data-dismiss="modal" class="btn btn-default">Cancel</button><button id="App-Feedback-Submit" class="btn btn-primary">Accept and Submit</button>
+</div>
+</div>
+</div>
+</div>
+<div tabindex="-1" id="App-Feedback-DialogShare" class="modal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h3>Thank you - please share the love!</h3>
+</div>
+<div class="modal-body">
+<p>
+We're glad to hear you like the result. Please help us spread the word by sharing it with your friends: 
+</p>
+<div>
+<div class="btn-group btn-group-lg">
+<a rel="noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvectorizer.ai" class="btn btn-lg btn-link" target="_blank">Facebook <span style="font-size: smaller;" class="glyphicon glyphicon-new-window"> </span></a><a rel="noreferrer" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvectorizer.ai" class="btn btn-lg btn-link" target="_blank">Twitter <span style="font-size: smaller;" class="glyphicon glyphicon-new-window"> </span></a><a rel="noreferrer" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fvectorizer.ai" class="btn btn-lg btn-link" target="_blank">LinkedIn <span style="font-size: smaller;" class="glyphicon glyphicon-new-window"> </span></a>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button data-dismiss="modal" class="btn btn-default">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div tabindex="-1" id="RetryDialog-Dialog" class="modal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h3>Network Error</h3>
+</div>
+<div class="modal-body">
+<table id="RetryDialog-Body" class="table table-striped table-bordered"></table>
+<p>
+Persistent network problems are usually caused by misbehaving browser plugins, misconfigured proxies, or overly restrictive firewalls. 
+</p>
+<p>Please check your settings or try another browser or computer. </p><p id="RetryDialog-Countdown"></p>
+</div>
+<div class="modal-footer">
+<button id="RetryDialog-RetryNowButton" class="btn btn-warning">Retry Now</button><a href="/" class="btn btn-default App-force_exit">Exit Application</a>
+</div>
+</div>
+</div>
+</div>
+<div tabindex="-1" id="FatalError-Dialog" class="modal fade">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h3>Fatal Error :-(</h3>
+</div>
+<div class="modal-body">
+<pre id="FatalError-Message"></pre>
+</div>
+<div class="modal-footer">
+<a href="/" class="btn btn-default App-force_exit">Close</a>
+</div>
+</div>
+</div>
+</div>
+
+<div id="PreCrop-App" class="noselect">
+<div id="PreCrop-Inner" class="noselect">
+<div id="PreCrop-ViewContainer"></div>
+<div id="PreCrop-Sidebar-Container" class="App-subapp_sidebar">
+<div class="PreCrop-Sidebar-body">
+<button id="PreCrop-TopCloseButton" class="close PreCrop-Sidebar-cancel_button">×</button><h3>Pre-Crop</h3>
+<p style="margin-top: 4px;" class="comment">
+Your image size exceeds the size limit. For best results, please crop the image to the portion you wish to vectorize. 
+</p>
+<div style="margin-bottom: 3px;"><h4 style="display: inline-block; margin-right: 7px;">Size Limit </h4><span class="nowrap"><span class="PreCrop-Sidebar-MaxNumMegapixels-display"></span></span></div>
+<hr><h4>Original Image</h4>
+<table class="table table-condensed">
+<tr>
+<td class="r">Size: </td><td class="PreCrop-Sidebar-input_image_size_display"></td>
+</tr>
+<tr>
+<td class="r">Aspect Ratio: </td><td class="PreCrop-Sidebar-input_image_aspect_ratio_display"></td>
+</tr>
+<tr>
+<td class="r">Megapixels: </td><td class="PreCrop-Sidebar-input_image_megapixels_display"></td>
+</tr>
+</table>
+<hr><h4>Cropped Image</h4>
+<table class="table table-condensed">
+<tr>
+<td class="r">Size: </td><td class="PreCrop-Sidebar-cropped_image_size_display"></td>
+</tr>
+<tr>
+<td class="r">Aspect Ratio: </td><td class="PreCrop-Sidebar-cropped_image_aspect_ratio_display"></td>
+</tr>
+<tr>
+<td class="r">Megapixels: </td><td class="PreCrop-Sidebar-cropped_image_megapixels_display"></td>
+</tr>
+</table>
+<div class="PreCrop-Sidebar-cropped_image_warning alert alert-warning">
+Cropped image exceeds size limit and will be scaled to fit. 
+</div>
+<div class="PreCrop-Sidebar-cropped_image_success alert alert-success">
+Size limit met, full resolution preserved. 
+</div>
+</div>
+<div id="PreCrop-Sidebar-ButtonBar">
+<button class="PreCrop-Sidebar-cancel_button bttn bttn_white">Cancel</button><button class="PreCrop-Sidebar-crop_button bttn bttn_dark">Ok</button>
+</div>
+</div>
+</div>
+</div>
+<label style="position: absolute; left: 0; top: 0; z-index: -10000;">
+<span style="color: transparent;">Paste Target</span>
+<input id="FileInput-PasteTarget">
+</label>
+
+<div class="popup_drop_target_container">
+<div class="popup_drop_target c">
+<span>DROP IMAGE HERE</span>
+</div>
+<div class="popup_drop_target_particles_container"></div>
+</div>
+</div>
+
+<div id="Signon-Dialog" class="modal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button data-dismiss="modal" class="close">
+&times;
+</button>
+<div id="Signon-Header"></div>
+</div>
+<div id="Signon-IframeContainer" class="modal-body">
+<div id="Signon-LoadingIndicator">
+
+<img src="https://d1j8j7mb8gx2ao.cloudfront.net/p/assets/merchant/loading-indicator_20295fd727fbc02635f3d8c947e54556.gif" importance="low" alt="loading indicator" loading="lazy" decoding="async">
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer id="footer">
+<hr>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="pull-left footerLinkList">
+<p>
+<a href="/">Vectorizer.AI</a>
+</p>
+<p>
+ &copy; <a href="https://cedarlakeventures.com">Cedar Lake Ventures, Inc.</a>
+</p>
+<p>
+<a href="https://cedarlakeventures.com/affiliates">Affiliate Program</a>
+</p>
+</div>
+<div class="pull-right footerLinkList">
+<p>
+<a href="/about">About</a>
+</p>
+<p>
+<a href="/policies/terms">Terms</a>
+</p>
+<p>
+<a href="/policies/privacy">Privacy</a>
+</p>
+</div>
+<div class="pull-right footerLinkList">
+<p>
+<a href="/support">Support</a>
+</p>
+<p>
+<a href="/pricing">Pricing</a>
+</p>
+<p>
+<a href="/api">API</a>
+</p>
+</div>
+<div class="pull-right footerLinkList">
+<p>
+<a href="/png-to-svg-converter">Convert png to svg</a>
+</p>
+<p>
+<a href="/jpg-to-svg-converter">Convert jpg to svg</a>
+</p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+</div>
+</div>
+</div>
+</footer>
+</body>
+
+</html>
