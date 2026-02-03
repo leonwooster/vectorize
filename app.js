@@ -7,6 +7,10 @@ class SVGColorAnalyzer {
         this.originalColorCount = 0;
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
+        this.highlightCanvas = document.getElementById('highlightCanvas');
+        this.highlightCtx = this.highlightCanvas.getContext('2d');
+        this.selectedColor = null;
+        this.svgImageData = null;
         
         this.initializeEventListeners();
     }
@@ -18,6 +22,7 @@ class SVGColorAnalyzer {
         const reduceBtn = document.getElementById('reduceBtn');
         const resetBtn = document.getElementById('resetBtn');
         const downloadBtn = document.getElementById('downloadBtn');
+        const clearHighlightBtn = document.getElementById('clearHighlightBtn');
 
         // Upload area click
         uploadArea.addEventListener('click', () => fileInput.click());
@@ -36,8 +41,8 @@ class SVGColorAnalyzer {
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             const file = e.dataTransfer.files[0];
-            if (file && file.type === 'image/svg+xml') {
-                this.loadSVGFile(file);
+            if (file) {
+                this.handleFileUpload(file);
             }
         });
 
@@ -45,7 +50,7 @@ class SVGColorAnalyzer {
         fileInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
-                this.loadSVGFile(file);
+                this.handleFileUpload(file);
             }
         });
 
@@ -69,6 +74,30 @@ class SVGColorAnalyzer {
         downloadBtn.addEventListener('click', () => {
             this.downloadSVG();
         });
+
+        // Clear highlight button
+        clearHighlightBtn.addEventListener('click', () => {
+            this.clearHighlight();
+        });
+
+        // ESC key to clear highlight
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.clearHighlight();
+            }
+        });
+    }
+
+    async handleFileUpload(file) {
+        const fileType = file.type;
+        
+        if (fileType === 'image/svg+xml') {
+            await this.loadSVGFile(file);
+        } else if (fileType === 'image/jpeg' || fileType === 'image/png' || fileType === 'image/jpg') {
+            await this.convertImageToSVG(file);
+        } else {
+            alert('Please upload an SVG, JPEG, or PNG file');
+        }
     }
 
     async loadSVGFile(file) {
@@ -79,6 +108,211 @@ class SVGColorAnalyzer {
         await this.analyzeSVG(text);
         this.displaySVG(text);
         this.updateUI();
+    }
+
+    async convertImageToSVG(file) {
+        // Show loading indicator
+        const preview = document.getElementById('svgPreview');
+        preview.innerHTML = '<div class="loading"><div class="spinner"></div><p>Converting image to SVG...</p></div>';
+        document.getElementById('mainContent').classList.add('active');
+
+        // Load image
+        const img = await this.loadImage(file);
+        
+        // Draw to canvas
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Scale down large images for performance
+        const maxSize = 800;
+        const scale = Math.min(maxSize / img.width, maxSize / img.height, 1);
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+        
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        
+        // Get image data
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        
+        // Convert to SVG
+        const svgText = this.imageDataToSVG(imageData, canvas.width, canvas.height);
+        
+        this.originalSVG = svgText;
+        this.currentSVG = svgText;
+        
+        await this.analyzeSVG(svgText);
+        this.displaySVG(svgText);
+        this.updateUI();
+    }
+
+    loadImage(file) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            const url = URL.createObjectURL(file);
+            
+            img.onload = () => {
+                URL.revokeObjectURL(url);
+                resolve(img);
+            };
+            img.onerror = () => {
+                URL.revokeObjectURL(url);
+                reject(new Error('Failed to load image'));
+            };
+            
+            img.src = url;
+        });
+    }
+
+    imageDataToSVG(imageData, width, height) {
+        // Quantize colors first to reduce complexity
+        const quantized = this.quantizeImageData(imageData, 16);
+        
+        // Create SVG with rectangles for each pixel
+        // This is a simple but effective approach
+        const rects = [];
+        const pixels = quantized.data;
+        
+        // Group consecutive pixels of same color in rows for optimization
+        for (let y = 0; y < height; y++) {
+            let currentColor = null;
+            let startX = 0;
+            
+            for (let x = 0; x <= width; x++) {
+                const i = (y * width + x) * 4;
+                const r = pixels[i];
+                const g = pixels[i + 1];
+                const b = pixels[i + 2];
+                const a = pixels[i + 3];
+                
+                // Skip fully transparent pixels
+                if (a < 10) {
+                    if (currentColor) {
+                        rects.push(`<rect x="${startX}" y="${y}" width="${x - startX}" height="1" fill="${currentColor}"/>`);
+                        currentColor = null;
+                    }
+                    continue;
+                }
+                
+                const color = this.rgbToHex(r, g, b);
+                
+                if (color === currentColor) {
+                    continue;
+                } else {
+                    if (currentColor) {
+                        rects.push(`<rect x="${startX}" y="${y}" width="${x - startX}" height="1" fill="${currentColor}"/>`);
+                    }
+                    currentColor = color;
+                    startX = x;
+                }
+            }
+        }
+        
+        // Build SVG
+        const svgText = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+${rects.join('\n')}
+</svg>`;
+        
+        return svgText;
+    }
+
+    quantizeImageData(imageData, colorCount) {
+        // Extract unique colors
+        const pixels = imageData.data;
+        const colorMap = new Map();
+        
+        for (let i = 0; i < pixels.length; i += 4) {
+            const r = pixels[i];
+            const g = pixels[i + 1];
+            const b = pixels[i + 2];
+            const a = pixels[i + 3];
+            
+            if (a < 10) continue;
+            
+            const key = `${r},${g},${b}`;
+            colorMap.set(key, (colorMap.get(key) || 0) + 1);
+        }
+        
+        // Convert to array
+        const colors = Array.from(colorMap.entries()).map(([key, count]) => {
+            const [r, g, b] = key.split(',').map(Number);
+            return { r, g, b, count };
+        });
+        
+        // If already few colors, return as is
+        if (colors.length <= colorCount) {
+            return imageData;
+        }
+        
+        // Use k-means to reduce colors
+        const palette = this.kMeansColors(colors, colorCount);
+        
+        // Create new image data with quantized colors
+        const newData = new Uint8ClampedArray(pixels.length);
+        
+        for (let i = 0; i < pixels.length; i += 4) {
+            const r = pixels[i];
+            const g = pixels[i + 1];
+            const b = pixels[i + 2];
+            const a = pixels[i + 3];
+            
+            if (a < 10) {
+                newData[i] = r;
+                newData[i + 1] = g;
+                newData[i + 2] = b;
+                newData[i + 3] = a;
+                continue;
+            }
+            
+            // Find nearest palette color
+            const nearest = this.findNearestColor({ r, g, b }, palette.map(c => ({ rgb: c })));
+            newData[i] = nearest.rgb.r;
+            newData[i + 1] = nearest.rgb.g;
+            newData[i + 2] = nearest.rgb.b;
+            newData[i + 3] = a;
+        }
+        
+        return new ImageData(newData, imageData.width, imageData.height);
+    }
+
+    kMeansColors(colors, k) {
+        // Initialize centroids
+        let centroids = colors.slice(0, k).map(c => ({ r: c.r, g: c.g, b: c.b }));
+        
+        // Iterate
+        for (let iter = 0; iter < 10; iter++) {
+            const clusters = Array(k).fill(null).map(() => []);
+            
+            // Assign to nearest centroid
+            colors.forEach(color => {
+                let minDist = Infinity;
+                let clusterIndex = 0;
+                
+                centroids.forEach((centroid, i) => {
+                    const dist = this.colorDistance(color, centroid);
+                    if (dist < minDist) {
+                        minDist = dist;
+                        clusterIndex = i;
+                    }
+                });
+                
+                clusters[clusterIndex].push(color);
+            });
+            
+            // Update centroids
+            centroids = clusters.map(cluster => {
+                if (cluster.length === 0) return centroids[0];
+                
+                const totalWeight = cluster.reduce((sum, c) => sum + c.count, 0);
+                const r = cluster.reduce((sum, c) => sum + c.r * c.count, 0) / totalWeight;
+                const g = cluster.reduce((sum, c) => sum + c.g * c.count, 0) / totalWeight;
+                const b = cluster.reduce((sum, c) => sum + c.b * c.count, 0) / totalWeight;
+                
+                return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
+            });
+        }
+        
+        return centroids;
     }
 
     async analyzeSVG(svgText) {
@@ -110,9 +344,11 @@ class SVGColorAnalyzer {
         this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
         URL.revokeObjectURL(url);
 
+        // Store image data for highlighting
+        this.svgImageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+
         // Analyze pixels
-        const imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
-        this.colorData = this.analyzePixels(imageData);
+        this.colorData = this.analyzePixels(this.svgImageData);
         this.originalColorCount = this.colorData.length;
     }
 
@@ -178,6 +414,137 @@ class SVGColorAnalyzer {
         document.getElementById('currentColors').textContent = this.colorData.length;
         
         this.renderColorList();
+        this.renderTopPalette();
+    }
+
+    renderTopPalette() {
+        const palette = document.getElementById('colorPaletteTop');
+        palette.innerHTML = '';
+
+        // Show all colors in descending order
+        this.colorData.forEach((color, index) => {
+            const swatchContainer = document.createElement('div');
+            swatchContainer.className = 'palette-swatch-container';
+            
+            const swatch = document.createElement('div');
+            swatch.className = 'palette-swatch';
+            swatch.style.backgroundColor = color.hex;
+            swatch.title = `${color.hex.toUpperCase()} - ${color.percentage.toFixed(2)}% (${color.count.toLocaleString()} pixels)`;
+            swatch.dataset.colorHex = color.hex;
+
+            const countLabel = document.createElement('div');
+            countLabel.className = 'palette-count';
+            countLabel.textContent = color.count.toLocaleString();
+
+            swatch.addEventListener('click', () => {
+                this.highlightColor(color.hex, swatch);
+            });
+
+            swatchContainer.appendChild(swatch);
+            swatchContainer.appendChild(countLabel);
+            palette.appendChild(swatchContainer);
+        });
+    }
+
+    highlightColor(colorHex, swatchElement) {
+        // Toggle if clicking the same color
+        if (this.selectedColor === colorHex) {
+            this.clearHighlight();
+            return;
+        }
+
+        // Update selected color
+        this.selectedColor = colorHex;
+
+        // Update active state on swatches
+        document.querySelectorAll('.palette-swatch').forEach(s => s.classList.remove('active'));
+        swatchElement.classList.add('active');
+
+        // Show clear button
+        document.getElementById('clearHighlightBtn').classList.add('active');
+
+        // Create highlight overlay
+        this.createHighlightOverlay(colorHex);
+    }
+
+    createHighlightOverlay(targetColor) {
+        if (!this.svgImageData) return;
+
+        const imageData = this.svgImageData;
+        const width = imageData.width;
+        const height = imageData.height;
+
+        // Set canvas size to match the rendered image data
+        this.highlightCanvas.width = width;
+        this.highlightCanvas.height = height;
+
+        // Get actual SVG element dimensions
+        const svgElement = document.querySelector('#svgPreview svg');
+        if (!svgElement) return;
+
+        const svgRect = svgElement.getBoundingClientRect();
+        
+        // Set canvas display size to match SVG
+        this.highlightCanvas.style.width = svgRect.width + 'px';
+        this.highlightCanvas.style.height = svgRect.height + 'px';
+
+        // Create new image data for overlay
+        const overlayData = this.highlightCtx.createImageData(width, height);
+        const targetRgb = this.hexToRgb(targetColor);
+
+        // Process pixels
+        for (let i = 0; i < imageData.data.length; i += 4) {
+            const r = imageData.data[i];
+            const g = imageData.data[i + 1];
+            const b = imageData.data[i + 2];
+            const a = imageData.data[i + 3];
+
+            // Skip fully transparent pixels
+            if (a < 10) {
+                overlayData.data[i] = 0;
+                overlayData.data[i + 1] = 0;
+                overlayData.data[i + 2] = 0;
+                overlayData.data[i + 3] = 0;
+                continue;
+            }
+
+            // Check if pixel matches target color
+            const isMatch = this.colorsMatch(
+                { r, g, b },
+                targetRgb,
+                15 // tolerance
+            );
+
+            if (isMatch) {
+                // Keep original color for matching pixels (make them pop)
+                overlayData.data[i] = Math.min(255, r * 1.1);
+                overlayData.data[i + 1] = Math.min(255, g * 1.1);
+                overlayData.data[i + 2] = Math.min(255, b * 1.1);
+                overlayData.data[i + 3] = 255;
+            } else {
+                // Darken non-matching pixels significantly
+                overlayData.data[i] = r * 0.2;
+                overlayData.data[i + 1] = g * 0.2;
+                overlayData.data[i + 2] = b * 0.2;
+                overlayData.data[i + 3] = a * 0.9;
+            }
+        }
+
+        // Draw overlay
+        this.highlightCtx.putImageData(overlayData, 0, 0);
+    }
+
+    colorsMatch(rgb1, rgb2, tolerance = 10) {
+        return Math.abs(rgb1.r - rgb2.r) <= tolerance &&
+               Math.abs(rgb1.g - rgb2.g) <= tolerance &&
+               Math.abs(rgb1.b - rgb2.b) <= tolerance;
+    }
+
+    clearHighlight() {
+        this.selectedColor = null;
+        this.highlightCtx.clearRect(0, 0, this.highlightCanvas.width, this.highlightCanvas.height);
+        document.querySelectorAll('.palette-swatch').forEach(s => s.classList.remove('active'));
+        document.getElementById('clearHighlightBtn').classList.remove('active');
     }
 
     renderColorList() {
@@ -338,6 +705,7 @@ class SVGColorAnalyzer {
 
     resetToOriginal() {
         this.currentSVG = this.originalSVG;
+        this.clearHighlight();
         this.analyzeSVG(this.originalSVG).then(() => {
             this.displaySVG(this.originalSVG);
             this.updateUI();

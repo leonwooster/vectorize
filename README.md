@@ -4,10 +4,22 @@ A web-based tool to analyze, reduce, and optimize SVG color palettes.
 
 ## Features
 
+✅ **Image Format Support**
+- Upload SVG files directly
+- Convert JPEG and PNG images to SVG automatically
+- Smart color quantization for raster images
+
 ✅ **Accurate Color Analysis**
 - Renders SVG to canvas for pixel-perfect color detection
 - Calculates actual visual percentage of each color
 - Sorts colors by usage (highest first)
+
+✅ **Interactive Color Highlighting**
+- Click any color in the top palette to highlight it
+- Selected color areas remain bright
+- Rest of the image darkens for contrast
+- Press ESC or click "Clear Highlight" to reset
+- Perfect for understanding color distribution
 
 ✅ **Smart Color Reduction**
 - K-means clustering algorithm for optimal color grouping
@@ -28,13 +40,18 @@ A web-based tool to analyze, reduce, and optimize SVG color palettes.
 
 1. **Open `index.html` in a web browser**
 
-2. **Upload an SVG file**
+2. **Upload an image file**
    - Drag and drop, or click to browse
+   - Supports SVG, JPEG, and PNG formats
+   - JPEG/PNG files are automatically converted to SVG
    - Use the included `sample.svg` for testing
 
 3. **Analyze Colors**
    - View all colors sorted by percentage
    - See visual representation of color distribution
+   - **Click any color in the top palette to highlight where it appears**
+   - Selected color stays bright, rest darkens
+   - Press ESC to clear highlight
 
 4. **Reduce Colors**
    - Use the slider to select target color count
