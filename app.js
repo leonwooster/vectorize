@@ -215,6 +215,7 @@ class SVGColorAnalyzer {
             this.selectedColor = null;
             this.selectedColorIndex = -1;
             this.isSingleColorMode = false;
+            this.originalColorCount = 0; // Reset so it gets updated with new image's color count
             
             // Task 3.1.1: Read file content using File API
             // Use FileReader to read the file content as text (compatible with both browser and test environments)
@@ -353,6 +354,7 @@ class SVGColorAnalyzer {
             this.selectedColor = null;
             this.selectedColorIndex = -1;
             this.isSingleColorMode = false;
+            this.originalColorCount = 0; // Reset so it gets updated with new image's color count
             
             console.log('Converting image to SVG:', file.name);
             
