@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palette Swatch Styling Test - Task 6.3</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional test styles */
+        body {
+            padding: 40px;
+        }
+        .test-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .test-section h2 {
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+        .test-description {
+            margin-bottom: 20px;
+            color: #718096;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Palette Swatch Styling Test</h1>
+            <p>Testing Task 6.3: Style palette swatches with CSS</p>
+        </header>
+
+        <div class="test-section">
+            <h2>Test 6.3.1: Hover Effects</h2>
+            <p class="test-description">
+                Hover over the color swatches below. They should:
+                <br>• Scale up to 1.15x and lift slightly (translateY -2px)
+                <br>• Show a deeper shadow
+                <br>• Display a subtle border hint
+                <br>• The pixel count should become darker and bolder
+            </p>
+            <div class="color-palette-top">
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff5733;" title="#FF5733 - 25.50% (1,234 pixels)"></div>
+                    <div class="palette-count">1,234</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #33ff57;" title="#33FF57 - 18.75% (987 pixels)"></div>
+                    <div class="palette-count">987</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #3357ff;" title="#3357FF - 15.25% (654 pixels)"></div>
+                    <div class="palette-count">654</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff33f5;" title="#FF33F5 - 12.00% (321 pixels)"></div>
+                    <div class="palette-count">321</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #f5ff33;" title="#F5FF33 - 10.50% (150 pixels)"></div>
+                    <div class="palette-count">150</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 6.3.2: Active State Styling</h2>
+            <p class="test-description">
+                The second swatch has the "active" class applied. It should:
+                <br>• Have a blue border (#667eea)
+                <br>• Show a glow effect (box-shadow with rgba)
+                <br>• Be scaled to 1.15x
+                <br>• When hovered, scale to 1.2x with enhanced shadow
+            </p>
+            <div class="color-palette-top">
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff5733;" title="#FF5733 - 25.50% (1,234 pixels)"></div>
+                    <div class="palette-count">1,234</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch active" style="background-color: #33ff57;" title="#33FF57 - 18.75% (987 pixels)"></div>
+                    <div class="palette-count">987</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #3357ff;" title="#3357FF - 15.25% (654 pixels)"></div>
+                    <div class="palette-count">654</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff33f5;" title="#FF33F5 - 12.00% (321 pixels)"></div>
+                    <div class="palette-count">321</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 6.3.3: Responsive Wrapping</h2>
+            <p class="test-description">
+                The palette should wrap to multiple rows as needed. Try resizing your browser window:
+                <br>• Desktop (>768px): Full size swatches (50x50px), 12px gap
+                <br>• Tablet (≤768px): Smaller swatches (45x45px), 10px gap, centered
+                <br>• Mobile (≤480px): Smallest swatches (40x40px), 8px gap, reduced hover effects
+            </p>
+            <div class="color-palette-top">
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff5733;"></div>
+                    <div class="palette-count">1,234</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #33ff57;"></div>
+                    <div class="palette-count">987</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #3357ff;"></div>
+                    <div class="palette-count">654</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff33f5;"></div>
+                    <div class="palette-count">321</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #f5ff33;"></div>
+                    <div class="palette-count">150</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #33fff5;"></div>
+                    <div class="palette-count">89</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #f533ff;"></div>
+                    <div class="palette-count">67</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff8c33;"></div>
+                    <div class="palette-count">45</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #8cff33;"></div>
+                    <div class="palette-count">23</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #338cff;"></div>
+                    <div class="palette-count">12</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff338c;"></div>
+                    <div class="palette-count">8</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #8c33ff;"></div>
+                    <div class="palette-count">5</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test: Keyboard Accessibility (Focus State)</h2>
+            <p class="test-description">
+                Tab through the swatches below. Focused swatches should show a blue border and glow effect.
+            </p>
+            <div class="color-palette-top">
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #ff5733;" tabindex="0"></div>
+                    <div class="palette-count">1,234</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #33ff57;" tabindex="0"></div>
+                    <div class="palette-count">987</div>
+                </div>
+                <div class="palette-swatch-container">
+                    <div class="palette-swatch" style="background-color: #3357ff;" tabindex="0"></div>
+                    <div class="palette-count">654</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click handlers to toggle active state for testing
+        document.querySelectorAll('.palette-swatch').forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                // Remove active from all swatches in the same palette
+                const palette = this.closest('.color-palette-top');
+                palette.querySelectorAll('.palette-swatch').forEach(s => s.classList.remove('active'));
+                // Add active to clicked swatch
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

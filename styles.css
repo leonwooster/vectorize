@@ -1,0 +1,880 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Upload Area */
+.upload-area {
+    background: white;
+    border: 3px dashed #cbd5e0;
+    border-radius: 12px;
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: #667eea;
+    background: #f7fafc;
+}
+
+.upload-area.dragover {
+    border-color: #667eea;
+    background: #edf2f7;
+    transform: scale(1.02);
+}
+
+.upload-content {
+    pointer-events: none;
+}
+
+.upload-icon {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.upload-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.upload-subtext {
+    font-size: 1rem;
+    color: #718096;
+    margin-bottom: 15px;
+}
+
+.upload-formats {
+    font-size: 0.9rem;
+    color: #a0aec0;
+}
+
+/* Main Content */
+.main-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    gap: 20px;
+}
+
+/* Preview Section */
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-header h2 {
+    font-size: 1.5rem;
+    color: #2d3748;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Top Colors Section */
+.top-colors-section {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.top-colors-section h3 {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+/* Color Palette Top */
+/* Task 6.3.3: Add responsive wrapping */
+.color-palette-top {
+    display: flex;
+    flex-wrap: wrap; /* Allows swatches to wrap to multiple rows */
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    min-height: auto;
+    align-items: flex-start; /* Align items to top for consistent layout */
+}
+
+.palette-swatch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    /* Ensure containers don't shrink below minimum size */
+    flex-shrink: 0;
+}
+
+/* Task 6.3.1: Add hover effects */
+/* Task 6.3.2: Add active state styling */
+.palette-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing for professional feel */
+    border: 2px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Ensure swatch maintains aspect ratio */
+    flex-shrink: 0;
+}
+
+/* Task 6.3.1: Enhanced hover effects for interactivity */
+.palette-swatch:hover {
+    transform: scale(1.15) translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* Deeper shadow on hover */
+    border-color: rgba(102, 126, 234, 0.3); /* Subtle border hint */
+    z-index: 10; /* Ensure hovered swatch appears above others */
+}
+
+/* Task 6.3.1: Add focus state for keyboard accessibility */
+.palette-swatch:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Task 6.3.2: Active state styling for selected colors */
+.palette-swatch.active {
+    border-color: #667eea; /* Primary color border */
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2), 0 4px 12px rgba(0, 0, 0, 0.2); /* Glow effect + shadow */
+    transform: scale(1.15); /* Slightly larger to indicate selection */
+    z-index: 5; /* Ensure active swatch appears above non-active ones */
+}
+
+/* Task 6.3.2: Active state hover - maintain active styling with subtle enhancement */
+.palette-swatch.active:hover {
+    transform: scale(1.2) translateY(-2px); /* Slightly more lift when hovering active swatch */
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3), 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.palette-count {
+    font-size: 0.6rem;
+    color: #718096;
+    font-weight: 600;
+    text-align: center;
+    /* Ensure count text doesn't wrap */
+    white-space: nowrap;
+    /* Add subtle transition for count updates */
+    transition: color 0.2s ease;
+}
+
+/* Task 6.3.1: Hover effect on count when hovering container */
+.palette-swatch-container:hover .palette-count {
+    color: #4a5568; /* Darker color on hover for better visibility */
+    font-weight: 700;
+}
+
+/* Preview Container */
+.preview-container {
+    position: relative;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.svg-preview {
+    position: relative;
+    max-width: 100%;
+    max-height: 600px;
+}
+
+.svg-preview svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.highlight-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+    pointer-events: none;
+}
+
+/* Clear Highlight Button */
+.btn-clear-highlight {
+    align-self: center;
+    margin-top: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar h3 {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 12px;
+}
+
+/* Original Section */
+.original-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    font-size: 1.3rem;
+    color: #2d3748;
+}
+
+.image-container {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.svg-display {
+    max-width: 100%;
+    max-height: 600px;
+}
+
+.svg-display svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Preview Section */
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-header h2 {
+    font-size: 1.3rem;
+    color: #2d3748;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Download Dropdown */
+.download-dropdown {
+    position: relative;
+}
+
+.download-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 5px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    min-width: 150px;
+}
+
+.download-dropdown.active .download-menu {
+    display: block;
+}
+
+.download-option {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #2d3748;
+    transition: background 0.2s ease;
+}
+
+.download-option:first-child {
+    border-radius: 6px 6px 0 0;
+}
+
+.download-option:last-child {
+    border-radius: 0 0 6px 6px;
+}
+
+.download-option:hover {
+    background: #f7fafc;
+    color: #667eea;
+}
+
+/* Top Colors Section */
+.top-colors-section {
+    background: #f7fafc;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.top-colors-section h3 {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+/* Ensure Top Colors uses simple swatches, not bubbles */
+.top-colors-section .color-palette-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0;
+}
+
+.top-colors-section .palette-swatch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.top-colors-section .palette-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Color Groups Container - Full Width */
+.color-groups-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.color-groups-section-full {
+    width: 100%;
+}
+
+.color-groups-section-full h3 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Color Groups Section */
+.color-groups-section {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.color-groups-section h3 {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 12px;
+}
+
+.color-groups {
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.color-group-bubble {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.color-circle {
+    transition: all 0.3s ease;
+}
+
+.color-circle:hover {
+    transform: scale(1.2) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    z-index: 100;
+}
+
+.color-circle.active {
+    box-shadow: 0 0 0 3px #667eea, 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.3) !important;
+    z-index: 50;
+}
+
+.color-bubble {
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.color-bubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.color-bubble.active {
+    box-shadow: 0 0 0 3px #667eea, 0 4px 16px rgba(0, 0, 0, 0.25);
+    transform: scale(1.15);
+    z-index: 5;
+}
+
+.bubble-label {
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Statistics Section */
+.stats-section {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+/* Reduction Section */
+.reduction-section {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.slider-container {
+    margin-bottom: 15px;
+}
+
+.slider-container label {
+    display: block;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+#colorCountValue {
+    font-weight: 700;
+    color: #667eea;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #5568d3;
+    transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #667eea;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #5568d3;
+    transform: scale(1.2);
+}
+
+/* Color List Section */
+.color-list-section {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.color-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.color-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.color-list::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 3px;
+}
+
+.color-list::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.color-list::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+.color-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.color-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-info {
+    flex: 1;
+}
+
+.color-hex {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.color-percentage {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 6px;
+}
+
+.percentage-bar {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.percentage-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #2d3748;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
+    transform: translateY(-2px);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: 4px solid #e2e8f0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-indicator p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+/* Error Message */
+.error-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fc8181;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    z-index: 1000;
+    max-width: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        order: 1;
+    }
+    
+    .original-section {
+        order: 2;
+    }
+    
+    .preview-section {
+        order: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .upload-area {
+        padding: 40px 20px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .preview-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .preview-actions {
+        width: 100%;
+    }
+    
+    .preview-actions .btn {
+        flex: 1;
+    }
+    
+    /* Task 6.3.3: Responsive palette adjustments for mobile */
+    .color-palette-top {
+        gap: 10px; /* Slightly smaller gap on mobile */
+        padding: 15px; /* Reduce padding on mobile */
+        justify-content: center; /* Center swatches on mobile */
+    }
+    
+    .palette-swatch {
+        width: 45px; /* Slightly smaller swatches on mobile */
+        height: 45px;
+    }
+    
+    .palette-count {
+        font-size: 0.7rem; /* Slightly smaller text on mobile */
+    }
+}
+
+/* Task 6.3.3: Additional responsive breakpoint for very small screens */
+@media (max-width: 480px) {
+    .color-palette-top {
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .palette-swatch {
+        width: 40px; /* Even smaller swatches on very small screens */
+        height: 40px;
+    }
+    
+    .palette-swatch:hover {
+        transform: scale(1.1) translateY(-1px); /* Reduce hover effect on small screens */
+    }
+    
+    .palette-swatch.active {
+        transform: scale(1.1); /* Reduce active scale on small screens */
+    }
+    
+    .palette-swatch.active:hover {
+        transform: scale(1.15) translateY(-1px);
+    }
+}

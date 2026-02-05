@@ -1,0 +1,23 @@
+{
+  "name": "svg-color-palette-analyzer",
+  "version": "1.0.0",
+  "description": "A web-based tool for analyzing, editing, and optimizing color palettes in SVG files",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [
+    "svg",
+    "color",
+    "palette",
+    "analyzer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jquery": "^4.0.0"
+  }
+}

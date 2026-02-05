@@ -3,440 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVG Color Analyzer & Reducer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            padding: 30px;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .upload-area {
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 30px;
-        }
-
-        .upload-area:hover {
-            border-color: #4876ff;
-            background: #f8f9ff;
-        }
-
-        .upload-area.dragover {
-            border-color: #4876ff;
-            background: #e8f0ff;
-        }
-
-        #fileInput {
-            display: none;
-        }
-
-        .main-content {
-            display: none;
-        }
-
-        .main-content.active {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 30px;
-        }
-
-        .preview-section {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            background: #fafafa;
-            position: relative;
-        }
-
-        .color-palette-top {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: white;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .palette-swatch-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .palette-swatch {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            border: 2px solid #ddd;
-            cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
-        }
-
-        .palette-swatch:hover {
-            transform: scale(1.1);
-            border-color: #4876ff;
-            box-shadow: 0 2px 8px rgba(72, 118, 255, 0.3);
-        }
-
-        .palette-swatch.active {
-            border-color: #4876ff;
-            border-width: 3px;
-            box-shadow: 0 0 0 3px rgba(72, 118, 255, 0.2);
-        }
-
-        .palette-count {
-            font-size: 11px;
-            color: #666;
-            font-weight: 500;
-            text-align: center;
-            min-width: 40px;
-        }
-
-        .palette-swatch-label {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
-            color: #666;
-            white-space: nowrap;
-        }
-
-        .preview-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
-            background: white;
-            border-radius: 4px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .svg-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        #svgPreview {
-            max-width: 100%;
-            max-height: 500px;
-            display: block;
-        }
-
-        #highlightCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-        }
-
-        .clear-highlight-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            z-index: 3;
-            display: none;
-        }
-
-        .clear-highlight-btn.active {
-            display: block;
-        }
-
-        .clear-highlight-btn:hover {
-            background: white;
-            border-color: #4876ff;
-        }
-
-        .controls-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .control-group {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .control-group h3 {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 16px;
-        }
-
-        .color-count-selector {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        #colorCount {
-            flex: 1;
-            height: 8px;
-        }
-
-        .color-count-value {
-            font-weight: bold;
-            color: #4876ff;
-            min-width: 30px;
-        }
-
-        .color-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .color-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background: white;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .color-swatch {
-            width: 40px;
-            height: 40px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            cursor: pointer;
-        }
-
-        .color-info {
-            flex: 1;
-        }
-
-        .color-hex {
-            font-family: monospace;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .color-percentage {
-            font-size: 12px;
-            color: #666;
-            margin-top: 2px;
-        }
-
-        .percentage-bar {
-            height: 4px;
-            background: #e0e0e0;
-            border-radius: 2px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-
-        .percentage-fill {
-            height: 100%;
-            background: #4876ff;
-            transition: width 0.3s;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: #4876ff;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #3659ff;
-        }
-
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-
-        .btn-block {
-            width: 100%;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-
-        .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #4876ff;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4876ff;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-    </style>
+    <title>SVG Color Palette Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>SVG Color Analyzer & Reducer</h1>
-        <p class="subtitle">Analyze colors, reduce palette, and export optimized SVG</p>
+        <header>
+            <h1>SVG Color Palette Analyzer</h1>
+            <p>Upload an SVG, JPEG, or PNG file to analyze and edit its color palette</p>
+        </header>
 
-        <div class="upload-area" id="uploadArea">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto 20px; color: #4876ff;">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
-            <h3>Drop image file here or click to upload</h3>
-            <p style="color: #999; margin-top: 10px;">Supports SVG, JPEG, and PNG files</p>
-            <input type="file" id="fileInput" accept=".svg,.jpg,.jpeg,.png,image/svg+xml,image/jpeg,image/png">
+        <div id="uploadArea" class="upload-area">
+            <div class="upload-content">
+                <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="upload-text">Drag and drop your file here</p>
+                <p class="upload-subtext">or click to browse</p>
+                <p class="upload-formats">Supports: SVG, JPEG, PNG</p>
+            </div>
+            <input type="file" id="fileInput" accept=".svg,.jpg,.jpeg,.png,image/svg+xml,image/jpeg,image/png" hidden>
         </div>
 
-        <div class="main-content" id="mainContent">
-            <div class="preview-section">
-                <h3 style="margin-bottom: 15px;">Preview</h3>
-                <div class="color-palette-top" id="colorPaletteTop">
-                    <!-- Color swatches will be populated here -->
-                </div>
-                <div class="preview-container">
-                    <button class="clear-highlight-btn" id="clearHighlightBtn">Clear Highlight (ESC)</button>
-                    <div class="svg-wrapper" id="svgWrapper">
-                        <div id="svgPreview"></div>
-                        <canvas id="highlightCanvas"></canvas>
-                    </div>
-                </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-value" id="originalColors">0</div>
-                        <div class="stat-label">Original Colors</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="currentColors">0</div>
-                        <div class="stat-label">Current Colors</div>
-                    </div>
-                </div>
+        <div id="colorGroupsContainer" class="color-groups-container" style="display: none;">
+            <div class="color-groups-section-full">
+                <h3>Color Groups</h3>
+                <div id="colorGroups" class="color-groups"></div>
             </div>
+        </div>
 
-            <div class="controls-section">
-                <div class="control-group">
-                    <h3>Color Reduction</h3>
-                    <div class="color-count-selector">
-                        <span>Colors:</span>
-                        <input type="range" id="colorCount" min="2" max="16" value="8" step="1">
-                        <span class="color-count-value" id="colorCountValue">8</span>
+        <div id="mainContent" class="main-content" style="display: none;">
+            <div class="content-wrapper">
+                <aside class="sidebar">
+                    <div class="stats-section">
+                        <h3>Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-label">Original Colors:</span>
+                                <span id="originalColorCount" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Current Colors:</span>
+                                <span id="currentColorCount" class="stat-value">0</span>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn btn-primary btn-block" id="reduceBtn">Apply Reduction</button>
+
+                    <div class="top-colors-section">
+                        <h3>Top Colors</h3>
+                        <div id="colorPaletteTop" class="color-palette-top"></div>
+                    </div>
+
+                    <div class="reduction-section" style="display: none;">
+                        <h3>Color Reduction</h3>
+                        <div class="slider-container">
+                            <label for="colorCountSlider">Target Colors: <span id="colorCountValue">8</span></label>
+                            <input type="range" id="colorCountSlider" min="2" max="16" value="8" step="1">
+                        </div>
+                        <button id="reduceBtn" class="btn btn-primary btn-full">Apply Reduction</button>
+                    </div>
+
+                    <div class="color-list-section" style="display: none;"></div>
+                        <h3>Color Palette</h3>
+                        <div id="colorList" class="color-list"></div>
+                    </div>
+                </aside>
+
+                <div class="original-section">
+                    <div class="section-header">
+                        <h2>Original Image</h2>
+                    </div>
+                    <div class="image-container">
+                        <div id="svgOriginal" class="svg-display"></div>
+                    </div>
                 </div>
 
-                <div class="control-group">
-                    <h3>Color Palette</h3>
-                    <div id="colorList" class="color-list">
-                        <!-- Colors will be populated here -->
+                <div class="preview-section">
+                    <div class="section-header">
+                        <h2>Preview</h2>
+                        <div class="preview-actions">
+                            <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                            <div class="download-dropdown">
+                                <button id="downloadBtn" class="btn btn-primary">Download ▼</button>
+                                <div class="download-menu">
+                                    <button class="download-option" data-format="svg">Download SVG</button>
+                                    <button class="download-option" data-format="png">Download PNG</button>
+                                    <button class="download-option" data-format="jpg">Download JPG</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="control-group">
-                    <h3>Export</h3>
-                    <div class="actions">
-                        <button class="btn btn-secondary" id="resetBtn" style="flex: 1;">Reset</button>
-                        <button class="btn btn-primary" id="downloadBtn" style="flex: 1;">Download SVG</button>
+                    
+                    <div class="preview-container">
+                        <div id="svgPreview" class="svg-preview">
+                            <canvas id="highlightCanvas" class="highlight-canvas"></canvas>
+                        </div>
                     </div>
+                    
+                    <button id="clearHighlightBtn" class="btn btn-clear-highlight" style="display: none;">
+                        Clear Highlight (ESC)
+                    </button>
                 </div>
             </div>
         </div>
+
+        <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processing image...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
     </div>
 
+    <canvas id="analysisCanvas" style="display: none;"></canvas>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
 </html>

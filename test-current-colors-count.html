@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Current Colors Count Update</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Current Colors Count Update</h1>
+        
+        <div class="test-instructions">
+            <h2>Test Instructions:</h2>
+            <ol>
+                <li>Upload an image (drag & drop or click to browse)</li>
+                <li>Click on different colors in "Top Colors" section</li>
+                <li>Verify "Current Colors" count updates to show number of visible colors</li>
+                <li>Click "Clear Highlight" button</li>
+                <li>Verify "Current Colors" count restores to original total</li>
+                <li>Try clicking colors in "Color Groups" section</li>
+                <li>Verify "Current Colors" shows "1" for single color mode</li>
+            </ol>
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <p>Drag and drop your file here or click to browse</p>
+            <input type="file" id="fileInput" accept="image/*,.svg" style="display: none;">
+        </div>
+
+        <div class="color-groups-section-full">
+            <h2>Color Groups</h2>
+            <div id="colorGroupsContainer" class="color-groups-container"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="sidebar">
+                <div class="stats-section">
+                    <h2>Statistics</h2>
+                    <div class="stat-item">
+                        <span class="stat-label">Original Colors:</span>
+                        <span id="originalColorCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Current Colors:</span>
+                        <span id="currentColorCount" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div class="palette-section">
+                    <h2>Top Colors</h2>
+                    <div id="colorPaletteTop" class="color-palette-top"></div>
+                </div>
+            </div>
+
+            <div class="original-section">
+                <h2>Original Image</h2>
+                <div id="svgOriginal" class="svg-original"></div>
+            </div>
+
+            <div class="preview-section">
+                <h2>Preview</h2>
+                <div id="svgPreview" class="svg-preview">
+                    <canvas id="highlightCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="clearHighlightBtn" style="display: none;">Clear Highlight</button>
+            <button id="resetBtn">Reset to Original</button>
+            <button id="downloadBtn">Download</button>
+        </div>
+
+        <canvas id="analysisCanvas" style="display: none;"></canvas>
+        <div id="loadingIndicator" style="display: none;">Loading...</div>
+        <div id="errorMessage" style="display: none;"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize the app
+        const app = new SVGColorAnalyzer();
+        
+        // Add visual feedback for testing
+        const originalObserver = new MutationObserver(() => {
+            const currentCount = $('#currentColorCount').text();
+            console.log('Current Colors Count Updated:', currentCount);
+        });
+        
+        originalObserver.observe(document.getElementById('currentColorCount'), {
+            childList: true,
+            characterData: true,
+            subtree: true
+        });
+    </script>
+</body>
+</html>

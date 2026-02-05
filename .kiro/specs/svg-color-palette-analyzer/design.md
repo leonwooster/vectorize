@@ -2,9 +2,18 @@
 
 ## Overview
 
-The SVG Color Palette Analyzer is a client-side web application that provides pixel-accurate color analysis of SVG files. The system renders SVG content to an HTML5 Canvas, analyzes pixel data to extract color information, and provides interactive features including color highlighting, palette reduction via k-means clustering, individual color editing, and SVG export.
+The SVG Color Palette Analyzer is a client-side web application that provides pixel-accurate color analysis of image files (SVG, JPEG, PNG). The system renders image content to an HTML5 Canvas, analyzes pixel data to extract color information, and provides interactive features including color highlighting, palette reduction via k-means clustering, individual color editing, and SVG export.
 
-The application follows a single-page architecture with no server dependencies, ensuring user privacy and immediate responsiveness. All processing occurs in the browser using native Web APIs (Canvas API, File API, DOM Parser).
+For raster images (JPEG/PNG), the application automatically converts them to SVG format using pixel-to-rectangle conversion with color quantization, enabling the same analysis and editing capabilities as native SVG files.
+
+The application follows a single-page architecture with no server dependencies, ensuring user privacy and immediate responsiveness. All processing occurs in the browser using jQuery for DOM manipulation and event handling, combined with native Web APIs (Canvas API, File API, DOM Parser) for image processing.
+
+**Technology Stack:**
+- **jQuery 3.7.1** (latest stable) - DOM manipulation, event handling, AJAX utilities
+- **HTML5** - Semantic markup and Canvas API
+- **CSS3** - Modern styling with flexbox/grid layouts
+- **Vanilla JavaScript** - Core algorithms (k-means, color analysis, image conversion)
+- **Browser APIs** - Canvas API, File API, DOM Parser, Blob API, URL API
 
 ## Architecture
 
@@ -23,7 +32,8 @@ The application follows a single-page architecture with no server dependencies, 
 ┌─────────────────────────────────────────────────────────────┐
 │                   SVGColorAnalyzer Class                     │
 │  ┌──────────────────────────────────────────────────────┐  │
-│  │  File Processing → Canvas Rendering → Pixel Analysis │  │
+│  │  File Processing → Image Conversion → Canvas Render  │  │
+│  │  → Pixel Analysis                                     │  │
 │  └──────────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Color Reduction (k-means) → Color Editing → Export  │  │
@@ -45,14 +55,21 @@ The application follows a single-page architecture with no server dependencies, 
 The system is organized into three logical layers:
 
 1. **Presentation Layer**: HTML/CSS for UI structure and styling
-2. **Application Layer**: JavaScript class managing state and business logic
+2. **Application Layer**: jQuery + JavaScript class managing state, DOM manipulation, and business logic
 3. **Browser API Layer**: Native browser capabilities for file handling, rendering, and data processing
+
+**jQuery Usage:**
+- Event handling (click, change, drag/drop, keyboard events)
+- DOM manipulation (element creation, updates, class management)
+- Element selection and traversal
+- Animation and transitions (optional for smooth UI updates)
+- Utility functions ($.each, $.extend, etc.)
 
 ## Components and Interfaces
 
 ### 1. SVGColorAnalyzer Class
 
-The main application controller that manages all functionality.
+The main application controller that manages all functionality. Uses jQuery for DOM operations and vanilla JavaScript for computational algorithms.
 
 **State Properties:**
 ```javascript
@@ -66,34 +83,112 @@ The main application controller that manages all functionality.
   highlightCanvas: HTMLCanvasElement, // Overlay canvas for highlighting
   highlightCtx: CanvasRenderingContext2D, // Highlight canvas context
   selectedColor: string | null,      // Currently highlighted color (hex)
-  svgImageData: ImageData | null     // Cached pixel data for highlighting
+  svgImageData: ImageData | null,    // Cached pixel data for highlighting
+  $elements: {                       // Cached jQuery selectors
+    uploadArea: jQuery,
+    fileInput: jQuery,
+    svgPreview: jQuery,
+    colorPaletteTop: jQuery,
+    colorList: jQuery,
+    // ... other frequently accessed elements
+  }
 }
 ```
 
 **Public Methods:**
-- `initializeEventListeners()`: Set up all DOM event handlers
+- `initializeEventListeners()`: Set up all DOM event handlers using jQuery
+- `handleFileUpload(file: File)`: Route file to appropriate handler based on type
 - `loadSVGFile(file: File)`: Load and process an SVG file
+- `convertImageToSVG(file: File)`: Convert JPEG/PNG to SVG format
+- `loadImage(file: File)`: Load raster image to Image object
+- `imageDataToSVG(imageData: ImageData, width: number, height: number)`: Convert pixel data to SVG
+- `quantizeImageData(imageData: ImageData, colorCount: number)`: Reduce colors using k-means
+- `kMeansColors(colors: ColorInfo[], k: number)`: K-means clustering for color quantization
 - `analyzeSVG(svgText: string)`: Analyze colors in SVG content
-- `displaySVG(svgText: string)`: Render SVG to preview area
-- `updateUI()`: Refresh all UI elements with current state
-- `highlightColor(colorHex: string, swatchElement: HTMLElement)`: Activate color highlighting
+- `displaySVG(svgText: string)`: Render SVG to preview area using jQuery
+- `updateUI()`: Refresh all UI elements with current state using jQuery
+- `highlightColor(colorHex: string, $swatchElement: jQuery)`: Activate color highlighting
 - `clearHighlight()`: Remove color highlighting overlay
 - `reduceColors(targetCount: number)`: Apply k-means color reduction
 - `updateColor(index: number, newHex: string)`: Edit individual color
 - `resetToOriginal()`: Restore original SVG state
 - `downloadSVG()`: Export current SVG as file
 
+**jQuery Integration:**
+- Use `$()` for all DOM selections
+- Use `.on()` for event binding
+- Use `.html()`, `.text()`, `.css()` for DOM updates
+- Use `.addClass()`, `.removeClass()`, `.toggleClass()` for styling
+- Use `.fadeIn()`, `.fadeOut()` for smooth transitions (optional)
+
 ### 2. File Upload Component
 
 **Interface:**
 - Drag-and-drop zone
 - Click-to-browse file input
-- File type validation (.svg, image/svg+xml)
+- File type validation (.svg, .jpg, .jpeg, .png and their MIME types)
 
 **Behavior:**
-- Visual feedback on drag-over
-- Error handling for invalid file types
+- Visual feedback on drag-over using jQuery `.addClass()/.removeClass()`
+- Error handling for invalid file types with jQuery alerts or custom modals
+- Automatic routing to appropriate handler (SVG or image conversion)
 - Automatic processing on file selection
+
+**jQuery Implementation:**
+```javascript
+// Event binding
+$('#uploadArea').on('click', () => $('#fileInput').trigger('click'));
+$('#uploadArea').on('dragover', (e) => {
+  e.preventDefault();
+  $(e.currentTarget).addClass('dragover');
+});
+$('#uploadArea').on('dragleave', (e) => {
+  $(e.currentTarget).removeClass('dragover');
+});
+$('#uploadArea').on('drop', (e) => {
+  e.preventDefault();
+  $(e.currentTarget).removeClass('dragover');
+  const file = e.originalEvent.dataTransfer.files[0];
+  if (file) this.handleFileUpload(file);
+});
+```
+
+### 2a. Image to SVG Conversion Engine
+
+**Input:** JPEG or PNG file
+**Output:** SVG text content
+
+**Process:**
+1. Load image file to Image object via FileReader/Blob URL
+2. Create temporary canvas and draw image
+3. Scale down if dimensions exceed 800px (maintain aspect ratio)
+4. Extract ImageData from canvas
+5. Apply color quantization (k-means, target: 16 colors)
+6. Convert quantized pixels to SVG rectangles
+7. Optimize by grouping consecutive same-color pixels in rows
+8. Generate SVG XML with proper structure and viewBox
+
+**Quantization Algorithm:**
+```
+Input: ImageData, target color count (16)
+Output: Quantized ImageData
+
+1. Extract all unique colors with pixel counts
+2. If colors <= target, return original
+3. Apply k-means clustering to reduce to target colors
+4. Map each pixel to nearest palette color
+5. Return new ImageData with quantized colors
+```
+
+**SVG Generation:**
+```
+For each row y in image:
+  Track current color and start position
+  For each pixel x in row:
+    If color changes or row ends:
+      Output: <rect x="startX" y="y" width="length" height="1" fill="color"/>
+      Update current color and start position
+```
 
 ### 3. Color Analysis Engine
 
@@ -117,10 +212,37 @@ The main application controller that manages all functionality.
 ### 4. Interactive Color Palette
 
 **Top Palette (Preview Section):**
-- Display top 12 colors as clickable swatches
-- Show color hex and percentage on hover
+- Display all colors as clickable swatches in descending order by occurrence
+- Show pixel count number below each swatch
+- Show color hex, percentage, and pixel count on hover tooltip
 - Visual feedback on selection (border, shadow)
 - Click to activate highlighting
+- Wraps to multiple rows as needed
+
+**jQuery Implementation:**
+```javascript
+renderTopPalette() {
+  const $palette = $('#colorPaletteTop');
+  $palette.empty();
+  
+  this.colorData.forEach((color) => {
+    const $container = $('<div>').addClass('palette-swatch-container');
+    const $swatch = $('<div>')
+      .addClass('palette-swatch')
+      .css('background-color', color.hex)
+      .attr('title', `${color.hex.toUpperCase()} - ${color.percentage.toFixed(2)}% (${color.count.toLocaleString()} pixels)`)
+      .data('color-hex', color.hex)
+      .on('click', (e) => this.highlightColor(color.hex, $(e.currentTarget)));
+    
+    const $count = $('<div>')
+      .addClass('palette-count')
+      .text(color.count.toLocaleString());
+    
+    $container.append($swatch, $count);
+    $palette.append($container);
+  });
+}
+```
 
 **Sidebar Palette (Control Panel):**
 - Display all colors with detailed information
@@ -129,6 +251,33 @@ The main application controller that manages all functionality.
 - Percentage value
 - Visual percentage bar
 - Scrollable list for many colors
+
+**jQuery Implementation:**
+```javascript
+renderColorList() {
+  const $colorList = $('#colorList');
+  $colorList.empty();
+  
+  this.colorData.forEach((color, index) => {
+    const $item = $('<div>').addClass('color-item').html(`
+      <input type="color" class="color-swatch" value="${color.hex}" data-index="${index}">
+      <div class="color-info">
+        <div class="color-hex">${color.hex.toUpperCase()}</div>
+        <div class="color-percentage">${color.percentage.toFixed(2)}%</div>
+        <div class="percentage-bar">
+          <div class="percentage-fill" style="width: ${Math.min(color.percentage, 100)}%"></div>
+        </div>
+      </div>
+    `);
+    
+    $item.find('.color-swatch').on('change', (e) => {
+      this.updateColor(index, $(e.target).val());
+    });
+    
+    $colorList.append($item);
+  });
+}
+```
 
 ### 5. Color Highlighting System
 
@@ -291,11 +440,15 @@ The application maintains two SVG states:
 *For any* RGB value (r, g, b) where each component is in [0, 255], converting to hex and back to RGB should produce the original values.
 **Validates: Requirements 2.5**
 
-### Property 5: Top Palette Size Limit
-*For any* color analysis result, the top palette should display at most 12 colors, even if more colors exist.
-**Validates: Requirements 3.1**
+### Property 5: All Colors Display
+*For any* color analysis result, the top palette should display all colors found in the image, arranged in descending order by pixel count.
+**Validates: Requirements 3.1, 3.2**
 
-### Property 6: Color Highlighting Toggle
+### Property 6: Pixel Count Display
+*For any* color in the top palette, the displayed pixel count should match the count value in the colorData array, formatted with thousand separators.
+**Validates: Requirements 3.2, 3.8**
+
+### Property 7: Color Highlighting Toggle
 *For any* selected color, clicking the same color swatch again should clear the highlighting (toggle behavior).
 **Validates: Requirements 4.8**
 
@@ -340,12 +493,12 @@ The application maintains two SVG states:
 ### File Upload Errors
 
 **Invalid File Type:**
-- Detection: Check file.type === 'image/svg+xml'
-- Response: Display error message, prevent processing
-- User Action: Select valid SVG file
+- Detection: Check file.type against supported types (image/svg+xml, image/jpeg, image/png)
+- Response: Display error message "Please upload an SVG, JPEG, or PNG file"
+- User Action: Select valid file
 
 **File Read Errors:**
-- Detection: Catch exceptions in file.text()
+- Detection: Catch exceptions in file.text() or FileReader operations
 - Response: Display "Failed to read file" message
 - User Action: Try different file or check file permissions
 
@@ -353,6 +506,23 @@ The application maintains two SVG states:
 - Detection: DOMParser returns document with parsererror element
 - Response: Display "Invalid SVG format" message
 - User Action: Validate SVG file externally
+
+### Image Conversion Errors
+
+**Image Load Failure:**
+- Detection: img.onerror event during conversion
+- Response: Display "Failed to load image" message
+- User Action: Check image file integrity
+
+**Unsupported Image Format:**
+- Detection: File type not in supported list
+- Response: Display "Unsupported image format" message
+- User Action: Convert image to JPEG or PNG externally
+
+**Image Too Large:**
+- Detection: Image dimensions exceed reasonable limits
+- Response: Automatic scaling to 800px max dimension
+- User Action: None (automatic handling)
 
 ### Canvas Rendering Errors
 
@@ -426,6 +596,13 @@ Unit tests verify specific examples, edge cases, and error conditions. They comp
 - Test replacing hex color in fill attribute
 - Test replacing RGB color in style attribute
 - Test case-insensitive replacement
+
+**Image Conversion Tests:**
+- Test JPEG to SVG conversion with known image
+- Test PNG to SVG conversion with transparency
+- Test color quantization reduces to 16 colors
+- Test image scaling for large images
+- Test row-based rectangle optimization
 
 ### Property-Based Testing
 
@@ -506,7 +683,42 @@ fc.assert(
 );
 ```
 
-**Property Test 7: Color Matching Symmetry**
+**Property Test 5: All Colors Display**
+```javascript
+// Feature: svg-color-palette-analyzer, Property 5: All Colors Display
+// For any color analysis result, top palette should display all colors
+fc.assert(
+  fc.property(
+    generateColorData(),
+    (colorData) => {
+      // Simulate rendering top palette
+      const displayedColors = colorData.length;
+      return displayedColors === colorData.length;
+    }
+  ),
+  { numRuns: 100 }
+);
+```
+
+**Property Test 6: Pixel Count Display**
+```javascript
+// Feature: svg-color-palette-analyzer, Property 6: Pixel Count Display
+// For any color, displayed count should match colorData with formatting
+fc.assert(
+  fc.property(
+    generateColorData(),
+    (colorData) => {
+      return colorData.every(color => {
+        const formatted = color.count.toLocaleString();
+        return formatted.length > 0 && !isNaN(color.count);
+      });
+    }
+  ),
+  { numRuns: 100 }
+);
+```
+
+**Property Test 7: Color Highlighting Toggle**
 ```javascript
 // Feature: svg-color-palette-analyzer, Property 7: Color Matching Symmetry
 // For any two colors, colorsMatch should be symmetric
@@ -583,32 +795,141 @@ fc.assert(
 );
 ```
 
+**Property Test 16: Image Conversion Color Quantization**
+```javascript
+// Feature: svg-color-palette-analyzer, Property 16: Image Conversion Quantization
+// For any JPEG/PNG conversion, result should have at most 16 colors
+fc.assert(
+  fc.property(
+    generateImageData(),
+    async (imageData) => {
+      const quantized = app.quantizeImageData(imageData, 16);
+      const colors = extractUniqueColors(quantized);
+      return colors.length <= 16;
+    }
+  ),
+  { numRuns: 100 }
+);
+```
+
+**Property Test 17: Image Scaling Constraint**
+```javascript
+// Feature: svg-color-palette-analyzer, Property 17: Image Scaling Constraint
+// For any large image, scaled dimensions should fit within 800x800
+fc.assert(
+  fc.property(
+    fc.integer(801, 5000),
+    fc.integer(801, 5000),
+    (width, height) => {
+      const maxSize = 800;
+      const scale = Math.min(maxSize / width, maxSize / height, 1);
+      const scaledWidth = width * scale;
+      const scaledHeight = height * scale;
+      return scaledWidth <= 800 && scaledHeight <= 800;
+    }
+  ),
+  { numRuns: 100 }
+);
+```
+
+**Property Test 18: Converted SVG Validity**
+```javascript
+// Feature: svg-color-palette-analyzer, Property 18: Converted SVG Validity
+// For any converted image, resulting SVG should be valid and analyzable
+fc.assert(
+  fc.property(
+    generateImageData(),
+    async (imageData) => {
+      const svgText = app.imageDataToSVG(imageData, imageData.width, imageData.height);
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(svgText, 'image/svg+xml');
+      const hasError = doc.querySelector('parsererror');
+      return !hasError && doc.documentElement.tagName === 'svg';
+    }
+  ),
+  { numRuns: 100 }
+);
+```
+
 ### Integration Testing
 
 **End-to-End Workflow Tests:**
 1. Load SVG → Verify analysis → Edit color → Verify update → Export → Verify validity
 2. Load SVG → Reduce colors → Verify count → Reset → Verify restoration
 3. Load SVG → Highlight color → Clear highlight → Verify state
+4. Load JPEG → Verify conversion → Verify analysis → Edit color → Export SVG
+5. Load PNG → Verify conversion → Verify quantization → Reduce colors → Export
 
 **Browser Compatibility Tests:**
 - Test on Chrome, Firefox, Safari (latest 2 versions)
 - Verify Canvas API support
 - Verify File API support
 - Verify HTML5 color input support
+- Verify Image loading and Blob URL support
 
 ### Performance Testing
 
 **Large File Handling:**
 - Test with 5000x5000px SVG
-- Verify analysis completes within 2 seconds
+- Test with 2000x2000px JPEG/PNG
+- Verify SVG analysis completes within 2 seconds
+- Verify image conversion completes within 5 seconds
 - Verify no browser freezing
 
 **Real-time Updates:**
 - Measure color edit preview update time (target: < 500ms)
 - Measure highlight overlay rendering time (target: < 300ms)
+- Measure image conversion time for typical images (target: < 5s)
 
 **Memory Management:**
 - Verify proper cleanup of object URLs
 - Verify no memory leaks during repeated operations
 - Monitor canvas memory usage
+- Verify proper cleanup after image conversion
 
+
+
+## Dependencies
+
+### Required Libraries
+- **jQuery 3.7.1** (latest stable version)
+  - CDN: `https://code.jquery.com/jquery-3.7.1.min.js`
+  - Integrity: `sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=`
+  - Crossorigin: `anonymous`
+  - Size: ~30KB minified + gzipped
+  - Used for: DOM manipulation, event handling, element selection, animations
+
+### Browser APIs
+- **Canvas API** - For rendering images and pixel-level analysis
+- **File API** - For file upload handling and reading
+- **DOM Parser** - For SVG parsing and validation
+- **Blob API** - For file download generation
+- **URL API** - For object URL creation and management
+- **Image API** - For loading JPEG/PNG images
+
+### Browser Compatibility
+- Chrome/Edge 90+ (for modern JavaScript features)
+- Firefox 88+
+- Safari 14+
+- Must support: ES6+, Canvas API, File API, HTML5 color input, jQuery 3.x
+
+### Development Tools (Optional)
+- Live Server or similar (for local development)
+- Browser DevTools (for debugging)
+- No build process required (plain HTML/CSS/JS with jQuery CDN)
+
+### File Structure
+```
+project/
+├── index.html          # Main HTML file (includes jQuery CDN)
+├── app.js              # Application logic (jQuery + vanilla JS)
+├── sample.svg          # Test SVG file
+└── README.md           # Documentation
+```
+
+### jQuery Integration Notes
+- Use jQuery for all DOM operations (selection, manipulation, events)
+- Use vanilla JavaScript for computational algorithms (k-means, color analysis)
+- Cache jQuery selectors in constructor for performance
+- Use event delegation for dynamically created elements
+- Prefer jQuery methods over native DOM methods for consistency
